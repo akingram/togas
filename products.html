@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products | Togas Groundnut Oil</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">T</div>
+                <div class="logo-text">
+                    <h1>TOGAS <span>Oil</span></h1>
+                    <p>Pure Groundnut Excellence</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="products.html" class="nav-link active">Products</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="#" class="btn btn-primary">Order Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Products Hero -->
+    <section class="products-hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Premium Quality Products</h1>
+                <p>Discover our range of groundnut oil products, each crafted with care to meet specific needs and preferences.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Categories -->
+    <section class="product-categories">
+        <div class="container">
+            <div class="category-filters" id="categoryFilters">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="togas">Togas Edible Oil</button>
+                <button class="category-btn" data-category="afrireach">AfriReach</button>
+                <button class="category-btn" data-category="special">Special Editions</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Togas Edible Oil Products -->
+                <div class="product-card fade-in" data-category="togas" id="togas-edible">
+                    <div class="product-image" style="background: linear-gradient(135deg, #8B7355, #D2691E);">
+                        <i class="fas fa-wine-bottle"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">Togas Edible Oil</span>
+                        <h3>Classic Cooking Oil</h3>
+                        <p><strong>Sizes:</strong> 1L, 2L, 5L, 20L</p>
+                        <p>Our flagship product. Perfect for all cooking methods with high smoke point and rich, authentic flavor.</p>
+                        <ul>
+                            <li>100% pure groundnut oil</li>
+                            <li>No additives or preservatives</li>
+                            <li>Rich in Vitamin E</li>
+                            <li>Low cholesterol</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Request Quote</a>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-1" data-category="togas">
+                    <div class="product-image" style="background: linear-gradient(135deg, #6B4226, #8B7355);">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">Togas Edible Oil</span>
+                        <h3>Family Pack</h3>
+                        <p><strong>Sizes:</strong> 10L, 25L</p>
+                        <p>Economical family-sized packs for households that value quality and quantity. Same premium quality in bulk packaging.</p>
+                        <ul>
+                            <li>Cost-effective for families</li>
+                            <li>UV-protected packaging</li>
+                            <li>Easy-pour design</li>
+                            <li>6-month shelf life</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Request Quote</a>
+                    </div>
+                </div>
+                
+                <!-- AfriReach Products -->
+                <div class="product-card fade-in delay-2" data-category="afrireach" id="afrireach">
+                    <div class="product-image" style="background: linear-gradient(135deg, #4A2C2A, #6B4226);">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">AfriReach</span>
+                        <h3>Industrial Grade Oil</h3>
+                        <p><strong>Sizes:</strong> 50L, 100L, 200L Drums</p>
+                        <p>For food processing industries, restaurants, and institutional kitchens. Consistent quality for commercial use.</p>
+                        <ul>
+                            <li>Bulk packaging options</li>
+                            <li>Customized blends available</li>
+                            <li>Regular supply contracts</li>
+                            <li>Technical support included</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Contact Sales</a>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-3" data-category="afrireach">
+                    <div class="product-image" style="background: linear-gradient(135deg, #2C1810, #4A2C2A);">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">AfriReach</span>
+                        <h3>Export Quality</h3>
+                        <p><strong>Sizes:</strong> 20ft Container Loads</p>
+                        <p>Premium grade oil meeting international standards for export markets. Certified for global distribution.</p>
+                        <ul>
+                            <li>ISO 22000 certified</li>
+                            <li>HACCP compliant</li>
+                            <li>Customs documentation</li>
+                            <li>FOB/CIF terms available</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Export Inquiry</a>
+                    </div>
+                </div>
+                
+                <!-- Special Editions -->
+                <div class="product-card fade-in" data-category="special" id="organic">
+                    <div class="product-image" style="background: linear-gradient(135deg, #D2691E, #8B7355);">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">Special Edition</span>
+                        <h3>Cold-Pressed Organic</h3>
+                        <p><strong>Sizes:</strong> 500ml, 1L, 2L</p>
+                        <p>Extra virgin groundnut oil extracted without heat. Preserves maximum nutrients and natural flavor.</p>
+                        <ul>
+                            <li>Cold-press extraction</li>
+                            <li>Organic certified</li>
+                            <li>Rich in antioxidants</li>
+                            <li>Perfect for dressings</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Order Now</a>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-1" data-category="special">
+                    <div class="product-image" style="background: linear-gradient(135deg, #8B7355, #6B4226);">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-tag">Special Edition</span>
+                        <h3>Festival Gift Packs</h3>
+                        <p><strong>Sizes:</strong> Gift Box Sets</p>
+                        <p>Beautifully packaged oil sets perfect for gifts, corporate presents, and special occasions.</p>
+                        <ul>
+                            <li>Elegant packaging</li>
+                            <li>Custom branding available</li>
+                            <li>Bulk discounts</li>
+                            <li>Nationwide delivery</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary mt-2">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features -->
+    <section class="features-section bg-cream">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why Our Oil Stands Out</h2>
+                <p>Every Togas product is crafted with attention to detail and commitment to excellence.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card fade-in delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Laboratory Tested</h3>
+                    <p>Every batch undergoes 12-point quality testing for purity, acidity, and nutritional content.</p>
+                </div>
+                
+                <div class="feature-card fade-in delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sustainable Packaging</h3>
+                    <p>Our packaging is recyclable and designed to protect oil quality while minimizing environmental impact.</p>
+                </div>
+                
+                <div class="feature-card fade-in delay-3">
+                    <div class="feature-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Award Winning</h3>
+                    <p>Recipient of multiple awards for quality and innovation in edible oil production.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bulk Orders CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Interested in Bulk Orders?</h2>
+                <p>We offer competitive pricing for wholesale buyers, restaurants, and industrial clients.</p>
+            </div>
+            
+            <div class="cta-buttons fade-in delay-1">
+                <a href="contact.html" class="btn btn-secondary">Request Quote</a>
+                <a href="tel:+2348123456789" class="btn btn-primary">Call Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="logo">
+                        <div class="logo-icon">T</div>
+                        <div class="logo-text">
+                            <h3>TOGAS Oil</h3>
+                            <p>Pure Groundnut Excellence</p>
+                        </div>
+                    </div>
+                    <p>Providing premium quality groundnut oil since 2010. Natural, healthy, and sustainably sourced.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="products.html#togas-edible">Togas Edible Oil</a></li>
+                        <li><a href="products.html#afrireach">AfriReach Industrial</a></li>
+                        <li><a href="products.html#organic">Organic Cold-Pressed</a></li>
+                        <li><a href="products.html">Bulk Orders</a></li>
+                        <li><a href="products.html">Export Quality</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Oil Street, Industrial Area, Lagos</li>
+                        <li><i class="fas fa-phone"></i> +234 812 345 6789</li>
+                        <li><i class="fas fa-envelope"></i> info@togasoil.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8AM-6PM</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Togas Groundnut Oil. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
