@@ -5,11 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Togas Edible Oil NG Ltd</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --green: #5f7f63;
       --green-light: #eef4ef;
+      --green-dark: #4a6550;
+      --green-footer: #4a6550;
       --text-dark: #1e1e1e;
+      --text-light: #666;
+      --white: #ffffff;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -18,174 +24,507 @@
       padding: 0;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Inter', sans-serif;
       color: var(--text-dark);
-      background: #ffffff;
+      background: var(--white);
       line-height: 1.6;
+      overflow-x: hidden;
     }
 
     /* NAVBAR */
     header {
       border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      background-color: var(--white);
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
     .nav {
       max-width: 1200px;
       margin: auto;
-      padding: 20px;
+      padding: 0 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      height: 80px;
     }
 
     .logo {
-      font-weight: 600;
-      font-size: 20px;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 24px;
       color: var(--green);
+      display: flex;
+      align-items: center;
+    }
+
+    .logo i {
+      margin-right: 10px;
+      font-size: 22px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
     }
 
     nav a {
-      margin-left: 24px;
+      margin-left: 32px;
       text-decoration: none;
       color: #333;
       font-size: 15px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--green);
     }
 
     nav a.active {
-      border-bottom: 2px solid var(--green);
-      padding-bottom: 4px;
+      color: var(--green);
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      background: var(--green);
+      bottom: -8px;
+      left: 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--green);
+      cursor: pointer;
     }
 
     /* HERO */
     .hero {
       position: relative;
       overflow: hidden;
-      background: var(--green-light);
+      background: linear-gradient(135deg, var(--green-light) 0%, #f8faf8 100%);
     }
 
     .hero-content {
       max-width: 1200px;
       margin: auto;
-      padding: 80px 20px;
+      padding: 100px 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 60px;
       align-items: center;
     }
 
-    .hero h1 {
+    .hero-text h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 48px;
+      font-size: 52px;
       margin-bottom: 20px;
+      line-height: 1.2;
+      color: var(--text-dark);
     }
 
-    .hero p {
-      max-width: 420px;
-      margin-bottom: 30px;
-      color: #444;
+    .hero-text p {
+      font-size: 18px;
+      color: var(--text-light);
+      margin-bottom: 40px;
+      max-width: 500px;
     }
 
     .btn {
-      padding: 14px 26px;
-      border-radius: 6px;
-      font-size: 14px;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
       text-decoration: none;
       display: inline-block;
-      margin-right: 12px;
+      margin-right: 16px;
+      margin-bottom: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary {
       background: var(--green);
-      color: #fff;
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--green-dark);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
     }
 
     .btn-outline {
-      border: 1px solid var(--green);
+      border: 2px solid var(--green);
       color: var(--green);
       background: transparent;
     }
 
-    .hero img {
+    .btn-outline:hover {
+      background: var(--green);
+      color: var(--white);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-image img {
       width: 100%;
-      max-width: 420px;
-      justify-self: center;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      border: 8px solid white;
     }
 
     /* ABOUT */
     section {
-      padding: 70px 20px;
+      padding: 100px 20px;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
 
     h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      margin-bottom: 16px;
+      font-size: 42px;
+      margin-bottom: 24px;
+      color: var(--text-dark);
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 3px;
+      background: var(--green);
+      bottom: -10px;
+      left: 0;
+    }
+
+    .section-description {
+      font-size: 18px;
+      color: var(--text-light);
+      max-width: 800px;
+      margin-top: 40px;
     }
 
     /* BRANDS */
+    .brands-section {
+      background: var(--green-light);
+    }
+
+    .brands-section h2 {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .brands-section h2::after {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+    }
+
     .brands {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 30px;
       margin-top: 40px;
     }
 
     .brand-card {
-      background: var(--green-light);
-      border-radius: 12px;
-      padding: 24px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 32px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
     }
 
-    .brand-card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
+    .brand-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
     }
 
-    .brand-card p {
-      font-size: 14px;
-      color: #444;
-      max-width: 220px;
+    .brand-info h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--green);
     }
 
-    .brand-card img {
-      width: 90px;
+    .brand-info p {
+      font-size: 15px;
+      color: var(--text-light);
+      max-width: 240px;
+    }
+
+    .brand-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-light);
+      padding: 10px;
+    }
+
+    .brand-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     /* CTA */
     .cta {
-      background: linear-gradient(135deg, #4f6f54, #6f8f74);
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
       text-align: center;
-      color: #fff;
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
 
     .cta h2 {
-      margin-bottom: 20px;
+      color: var(--white);
+      position: relative;
+      z-index: 2;
+      margin-bottom: 30px;
+    }
+
+    .cta h2::after {
+      background: var(--white);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
     }
 
     .cta .btn {
-      background: #fff;
+      background: var(--white);
       color: var(--green);
-      font-weight: 500;
+      font-weight: 600;
+      padding: 18px 40px;
+      font-size: 18px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta .btn:hover {
+      background: var(--green-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green-footer);
+      color: rgba(255, 255, 255, 0.85);
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer-about p {
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.7;
+    }
+
+    .footer-links h4 {
+      color: var(--white);
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .footer-links a {
+      display: block;
+      color: rgba(255, 255, 255, 0.75);
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: color 0.3s;
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-links a i {
+      margin-right: 10px;
+      width: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--white);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      max-width: 1200px;
+      margin: auto;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
     }
 
     /* RESPONSIVE */
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 80px 20px;
+        gap: 50px;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      h2 {
+        font-size: 36px;
+      }
+
+      .hero-image img {
+        max-width: 450px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 999;
+      }
+
+      .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
       }
 
       nav a {
-        margin-left: 14px;
+        margin: 15px 0;
+        font-size: 18px;
+      }
+
+      nav a.active::after {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 36px;
+      }
+
+      .hero-text p {
+        font-size: 16px;
+      }
+
+      .btn {
+        padding: 14px 28px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+
+      .brand-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+      }
+
+      .brand-info p {
+        max-width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .brand-image {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-text h1 {
+        font-size: 32px;
+      }
+
+      .hero-content {
+        padding: 60px 20px;
+      }
+
+      .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+      }
+
+      h2 {
+        font-size: 30px;
       }
     }
   </style>
@@ -194,8 +533,16 @@
 
 <header>
   <div class="nav">
-    <div class="logo">Togas Edible Oil NG Ltd</div>
-    <nav>
+    <div class="logo">
+      <i class="fas fa-seedling"></i>
+      Togas Edible Oil NG Ltd
+    </div>
+    
+    <button class="menu-toggle" id="menuToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <nav class="nav-links" id="navLinks">
       <a class="active" href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
@@ -207,40 +554,49 @@
 
 <section class="hero">
   <div class="hero-content">
-    <div>
+    <div class="hero-text">
       <h1>Pure Quality.<br>Trusted Nutrition.</h1>
       <p>Producers of premium edible oils for Nigerian homes and businesses.</p>
       <a href="distributor.html" class="btn btn-primary">Become a Distributor</a>
       <a href="products.html" class="btn btn-outline">View Products</a>
     </div>
-    <img src="images/real.jpeg" alt="Edible Oil Products">
+    <div class="hero-image">
+      <!-- Original hero image from your code -->
+      <img src="images/real.jpeg" alt="Edible Oil Products">
+    </div>
   </div>
 </section>
 
 <section>
   <div class="container">
     <h2>About Togas Edible Oil NG Ltd</h2>
-    <p>
+    <p class="section-description">
       Togas Edible Oil NG Ltd is a Nigerian-owned food manufacturing company committed to producing high-quality, affordable and nutritious edible oils that meet national and international standards.
     </p>
 
-    <h2 style="margin-top:50px">Brands</h2>
+    <h2 style="margin-top:80px">Our Brands</h2>
 
     <div class="brands">
       <div class="brand-card">
-        <div>
+        <div class="brand-info">
           <h3>Togas Oil</h3>
           <p>Premium refined soya oil for cooking and salad</p>
         </div>
-        <img src="images/image1.jpeg" alt="Togas Oil">
+        <div class="brand-image">
+          <!-- Original brand image from your code -->
+          <img src="images/image1.jpeg" alt="Togas Oil">
+        </div>
       </div>
 
       <div class="brand-card">
-        <div>
+        <div class="brand-info">
           <h3>AfriRich</h3>
           <p>Nutritious and affordable cooking oil for everyday use</p>
         </div>
-        <img src="images/image2.jpeg" alt="AfriRich Oil">
+        <div class="brand-image">
+          <!-- Original brand image from your code -->
+          <img src="images/image2.jpeg" alt="AfriRich Oil">
+        </div>
       </div>
     </div>
   </div>
@@ -252,6 +608,55 @@
     <a href="distributor.html" class="btn">Apply to Become a Distributor</a>
   </div>
 </section>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-about">
+      <div class="footer-logo">Togas Edible Oil NG Ltd</div>
+      <p>Producers of premium edible oils for Nigerian homes and businesses since 2010.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+      <a href="products.html"><i class="fas fa-box"></i> Our Products</a>
+      <a href="distributor.html"><i class="fas fa-handshake"></i> Become a Distributor</a>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Contact Info</h4>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> Industrial Estate, Lagos</a>
+      <a href="tel:+2348012345678"><i class="fas fa-phone"></i> +234 801 234 5678</a>
+      <a href="mailto:info@togasoil.com"><i class="fas fa-envelope"></i> info@togasoil.com</a>
+    </div>
+  </div>
+  
+  <div class="copyright">
+    &copy; 2023 Togas Edible Oil NG Ltd. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuToggle.innerHTML = navLinks.classList.contains('active') 
+      ? '<i class="fas fa-times"></i>' 
+      : '<i class="fas fa-bars"></i>';
+  });
+  
+  // Close mobile menu when clicking on a link
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+      menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    });
+  });
+</script>
 
 </body>
 </html>
