@@ -66,6 +66,7 @@
       color: var(--green);
       display: flex;
       align-items: center;
+      text-decoration: none;
     }
 
     .logo i {
@@ -477,6 +478,7 @@
         height: auto;
         max-height: calc(100vh - 80px);
         overflow-y: auto;
+        display: flex; /* Ensure it displays when active */
       }
 
       .nav-links.active {
@@ -560,10 +562,10 @@
 
 <header>
   <div class="nav">
-    <div class="logo">
+    <a href="index.html" class="logo">
       <i class="fas fa-seedling"></i>
       Togas Edible Oil NG Ltd
-    </div>
+    </a>
     
     <button class="menu-toggle" id="menuToggle">
       <i class="fas fa-bars"></i>
@@ -574,7 +576,7 @@
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="distributor.html">Become a Distributor</a>
-      <a href="/blog.html">Blog</a>
+      <a href="blog.html">Blog</a>
     </nav>
   </div>
 </header>
@@ -670,13 +672,16 @@
     // Check if elements exist
     if (menuToggle && navLinks) {
       // Toggle mobile menu
-      menuToggle.addEventListener('click', () => {
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
         navLinks.classList.toggle('active');
         // Change icon based on menu state
         if (navLinks.classList.contains('active')) {
           menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+          menuToggle.setAttribute('aria-expanded', 'true');
         } else {
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
       
@@ -685,17 +690,27 @@
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         });
       });
       
       // Close menu when clicking outside
-      document.addEventListener('click', (event) => {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+      document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
     } else {
@@ -708,6 +723,7 @@
         navLinks.classList.remove('active');
         if (menuToggle) {
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       }
     });
