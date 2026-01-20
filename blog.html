@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Become a Distributor | Togas Edible Oil NG Ltd</title>
+<title>Blog & Media | Togas Edible Oil NG Ltd</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
@@ -116,90 +116,50 @@ nav a.active::after{
   cursor:pointer;
 }
 
-/* ================= HERO ================= */
-.hero{
-  position:relative;
-  min-height:460px;
-  background-image:url('images/real.jpeg');
-  background-repeat:no-repeat;
-  background-position:center right;
-  background-size:contain;
-  padding:80px 20px;
-  display:flex;
-  align-items:center;
-  background-color:var(--green-light);
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background: linear-gradient(
+/* ================= BLOG HERO ================= */
+.blog-hero{
+  background:linear-gradient(
     to right,
-    rgba(214, 232, 219, 0.95),
-    rgba(236, 245, 239, 0.85),
-    rgba(255, 255, 255, 0.3)
+    #e6f1ea,
+    #f2f7f4
   );
+  padding:100px 20px;
 }
 
-.hero-content {
+.blog-hero-container {
   max-width:1200px;
   margin:0 auto;
-  width:100%;
-  position:relative;
-  z-index:2;
 }
 
-.hero-text{
-  max-width:480px;
-}
-
-.hero-text h2{
+.blog-hero h2{
   font-family: 'Playfair Display', serif;
   font-size:48px;
-  margin-bottom:16px;
+  margin-bottom:20px;
   font-weight:800;
   color:var(--text-dark);
   line-height:1.2;
 }
 
-.hero-text p{
+.blog-hero p{
   font-size:18px;
   color:var(--text-medium);
-  margin-bottom:32px;
-  line-height:1.7;
+  max-width:600px;
   font-weight:500;
+  line-height:1.7;
 }
 
-.hero-text button{
-  background:var(--green);
-  color:var(--white);
-  border:none;
-  padding:16px 40px;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  border-radius:8px;
-  transition:all 0.3s ease;
-}
-
-.hero-text button:hover{
-  background:var(--green-dark);
-  transform:translateY(-3px);
-  box-shadow:var(--shadow-hover);
-}
-
-/* ================= WHY ================= */
-.why{
+/* ================= CEO VIDEOS ================= */
+.videos{
   padding:100px 20px;
   background:var(--white);
 }
 
-.why-container {
+.videos-container {
   max-width:1200px;
   margin:0 auto;
 }
 
-.why h3{
+.videos h3{
   font-family: 'Playfair Display', serif;
   font-size:42px;
   margin-bottom:50px;
@@ -207,58 +167,84 @@ nav a.active::after{
   color:var(--text-dark);
 }
 
-.why-grid{
+.video-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
   gap:30px;
 }
 
-.why-item{
+.video-card{
   background:var(--green-light);
-  padding:30px;
   border-radius:12px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
   transition:transform 0.3s ease;
   border:2px solid transparent;
 }
 
-.why-item:hover{
+.video-card:hover{
   transform:translateY(-5px);
   border-color:var(--green);
   box-shadow:var(--shadow-hover);
 }
 
-.why-item .icon{
-  font-size:40px;
-  margin-bottom:20px;
-  color:var(--green);
+.video-thumb{
+  background:var(--green);
+  height:200px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:60px;
+  color:var(--white);
+  position:relative;
+  overflow:hidden;
 }
 
-.why-item h4{
+.video-thumb i {
+  position:relative;
+  z-index:2;
+}
+
+.video-thumb::after {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.1);
+}
+
+.video-card-content{
+  padding:30px;
+}
+
+.video-card h4{
   font-size:20px;
   margin-bottom:12px;
   font-weight:700;
   color:var(--text-dark);
 }
 
-.why-item p{
+.video-card p{
   font-size:16px;
   color:var(--text-medium);
-  line-height:1.7;
   font-weight:500;
+  line-height:1.7;
 }
 
-/* ================= BRANDS ================= */
-.brands{
+/* ================= BLOG POSTS ================= */
+.posts{
   padding:100px 20px;
   background:#f6f6f6;
 }
 
-.brands-container {
+.posts-container {
   max-width:1200px;
   margin:0 auto;
 }
 
-.brands h3{
+.posts h3{
   font-family: 'Playfair Display', serif;
   font-size:42px;
   margin-bottom:50px;
@@ -266,121 +252,191 @@ nav a.active::after{
   color:var(--text-dark);
 }
 
-.brand-box{
+.post-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
 }
 
-.brand-card{
+.post-card{
   background:var(--white);
-  padding:30px;
-  display:flex;
-  align-items:center;
-  gap:30px;
   border-radius:12px;
+  padding:35px;
   box-shadow:var(--shadow);
   transition:transform 0.3s ease;
+  border:2px solid transparent;
 }
 
-.brand-card:hover{
+.post-card:hover{
   transform:translateY(-5px);
+  border-color:var(--green);
   box-shadow:var(--shadow-hover);
 }
 
-.brand-card img{
-  width:140px;
-  height:140px;
-  object-fit:cover;
-  border-radius:8px;
+.post-card span{
+  font-size:14px;
+  color:var(--green);
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:15px;
+  display:inline-block;
 }
 
-.brand-info h4{
+.post-card h4{
   font-family: 'Playfair Display', serif;
   font-size:24px;
-  margin-bottom:12px;
+  margin:15px 0;
   font-weight:700;
-  color:var(--green);
+  color:var(--text-dark);
+  line-height:1.3;
 }
 
-.brand-info p{
+.post-card p{
   font-size:16px;
   color:var(--text-medium);
-  font-weight:500;
   line-height:1.7;
+  font-weight:500;
 }
 
-/* ================= FORM ================= */
-.join{
+.post-card .read-more {
+  margin-top:20px;
+  display:inline-block;
+  color:var(--green);
+  font-weight:600;
+  text-decoration:none;
+  transition:color 0.3s ease;
+}
+
+.post-card .read-more:hover {
+  color:var(--green-dark);
+}
+
+/* ================= TESTIMONIALS ================= */
+.testimonials{
   padding:100px 20px;
-  background:#ededed;
+  background:var(--white);
 }
 
-.join-container {
+.testimonials-container {
   max-width:1200px;
   margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:60px;
 }
 
-.join-info h3{
+.testimonials h3{
   font-family: 'Playfair Display', serif;
   font-size:42px;
-  margin-bottom:20px;
+  margin-bottom:50px;
   font-weight:800;
   color:var(--text-dark);
 }
 
-.join-info p{
+.testimonial-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:30px;
+}
+
+.testimonial{
+  background:var(--green-light);
+  padding:35px;
+  border-left:6px solid var(--green);
+  border-radius:8px;
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
+}
+
+.testimonial:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-hover);
+}
+
+.testimonial p{
+  font-size:17px;
   color:var(--text-medium);
-  font-size:18px;
-  max-width:500px;
+  margin-bottom:25px;
   line-height:1.7;
   font-weight:500;
+  font-style:italic;
 }
 
-.form-container {
-  background:var(--white);
-  padding:40px;
-  border-radius:12px;
-  box-shadow:var(--shadow);
-}
-
-.form-group {
-  margin-bottom:20px;
-}
-
-.form-group label {
-  display:block;
-  margin-bottom:8px;
-  font-weight:600;
+.testimonial h5{
+  font-size:18px;
+  font-weight:700;
   color:var(--text-dark);
+  margin-bottom:5px;
 }
 
-form input, form select, form textarea{
-  width:100%;
-  padding:14px;
-  margin-bottom:20px;
-  border:1px solid #cfcfcf;
-  font-size:16px;
-  border-radius:6px;
+.testimonial span{
+  font-size:14px;
+  color:var(--text-light);
   font-weight:500;
-  font-family: 'Inter', sans-serif;
 }
 
-form input:focus, form select:focus, form textarea:focus{
-  outline:none;
-  border-color:var(--green);
-  box-shadow:0 0 0 2px rgba(95, 127, 99, 0.2);
-}
-
-form button{
-  background:var(--green);
+/* ================= NEWSLETTER ================= */
+.newsletter{
+  padding:100px 20px;
+  background:linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
   color:var(--white);
-  border:none;
-  padding:16px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.newsletter::before {
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
   width:100%;
+  height:100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.newsletter-container {
+  max-width:700px;
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+}
+
+.newsletter h3{
+  font-family: 'Playfair Display', serif;
+  font-size:42px;
+  margin-bottom:20px;
+  font-weight:800;
+}
+
+.newsletter p{
+  font-size:18px;
+  margin-bottom:40px;
+  opacity:0.95;
+  font-weight:500;
+  line-height:1.7;
+}
+
+.newsletter-form {
+  display:flex;
+  gap:15px;
+  max-width:500px;
+  margin:0 auto;
+}
+
+.newsletter-form input{
+  flex:1;
+  padding:16px 20px;
+  border:none;
+  border-radius:8px;
+  font-size:16px;
+  font-family: 'Inter', sans-serif;
+  font-weight:500;
+}
+
+.newsletter-form button{
+  background:var(--white);
+  color:var(--green);
+  border:none;
+  padding:16px 30px;
   font-size:16px;
   font-weight:700;
   cursor:pointer;
@@ -388,10 +444,10 @@ form button{
   transition:all 0.3s ease;
 }
 
-form button:hover{
-  background:var(--green-dark);
+.newsletter-form button:hover{
+  background:var(--green-light);
   transform:translateY(-3px);
-  box-shadow:var(--shadow-hover);
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* FOOTER */
@@ -465,18 +521,19 @@ footer {
 
 /* ================= RESPONSIVE ================= */
 @media (max-width: 992px) {
-  .hero {
-    background-size: cover;
-    min-height: 400px;
-  }
-  
-  .hero-text h2 {
+  .blog-hero h2 {
     font-size: 42px;
   }
   
-  .join-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+  .videos h3,
+  .posts h3,
+  .testimonials h3,
+  .newsletter h3 {
+    font-size: 36px;
+  }
+  
+  .newsletter-form {
+    flex-direction: column;
   }
 }
 
@@ -524,61 +581,52 @@ footer {
     display: none;
   }
 
-  .hero-text h2 {
+  .blog-hero h2 {
     font-size: 36px;
   }
   
-  .hero-text p {
+  .blog-hero p {
     font-size: 16px;
   }
   
-  .why h3,
-  .brands h3,
-  .join-info h3 {
-    font-size: 36px;
+  .videos,
+  .posts,
+  .testimonials,
+  .newsletter {
+    padding: 80px 20px;
   }
   
-  .brand-box {
+  .video-grid,
+  .post-grid,
+  .testimonial-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .brand-card {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .brand-card img {
-    width: 120px;
-    height: 120px;
   }
 }
 
 @media (max-width: 576px) {
-  .hero-text h2 {
+  .blog-hero h2 {
     font-size: 32px;
   }
   
-  .hero {
-    padding: 60px 20px;
-    min-height: 350px;
-  }
-  
-  .why, .brands, .join {
+  .blog-hero {
     padding: 80px 20px;
   }
   
-  .why h3,
-  .brands h3,
-  .join-info h3 {
+  .videos h3,
+  .posts h3,
+  .testimonials h3,
+  .newsletter h3 {
     font-size: 30px;
   }
   
-  .why-grid {
-    grid-template-columns: 1fr;
+  .post-card,
+  .testimonial {
+    padding: 25px;
   }
   
-  .form-container {
-    padding: 30px;
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
   }
 }
 </style>
@@ -601,120 +649,120 @@ footer {
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
-      <a class="active" href="distributor.html">Become a Distributor</a>
-      <a href="blog.html">Blog</a>
+      <a href="distributor.html">Become a Distributor</a>
+      <a class="active" href="blog.html">Blog</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-text">
-      <h2>Become a Distributor</h2>
-      <p>Partner with Nigeria's trusted edible oil brand and grow your business with premium products that sell themselves.</p>
-      <button onclick="document.getElementById('distributorForm').scrollIntoView({behavior: 'smooth'})">Apply Now</button>
-    </div>
+<section class="blog-hero">
+  <div class="blog-hero-container">
+    <h2>Media, Insights & Testimonials</h2>
+    <p>
+      Watch interviews with our CEO, read company insights,
+      and hear from distributors and customers across Nigeria.
+    </p>
   </div>
 </section>
 
-<section class="why">
-  <div class="why-container">
-    <h3>Why Partner with Togas Edible Oil NG Ltd</h3>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="icon">📈</div>
-        <h4>High Demand Products</h4>
-        <p>Distribute popular, high-quality oils trusted by households and businesses across Nigeria.</p>
-      </div>
-      <div class="why-item">
-        <div class="icon">💰</div>
-        <h4>Strong Profit Margins</h4>
-        <p>Enjoy competitive pricing and excellent profit potential with every sale you make.</p>
-      </div>
-      <div class="why-item">
-        <div class="icon">📢</div>
-        <h4>Marketing Support</h4>
-        <p>Access promotional materials and guidance to grow your market reach effectively.</p>
-      </div>
-      <div class="why-item">
-        <div class="icon">🚚</div>
-        <h4>Reliable Supply Chain</h4>
-        <p>Consistent supply and timely deliveries to meet customer demand without delays.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="brands">
-  <div class="brands-container">
-    <h3>Our Trusted Brands</h3>
-    <div class="brand-box">
-      <div class="brand-card">
-        <img src="images/image1.jpeg" alt="Togas Vegetable Oil">
-        <div class="brand-info">
-          <h4>Togas Premium Oil</h4>
-          <p>Premium refined vegetable oil for cooking, frying and salad dressing. Trusted by top restaurants and homes.</p>
+<section class="videos">
+  <div class="videos-container">
+    <h3>CEO Interviews & Media Appearances</h3>
+    <div class="video-grid">
+      <div class="video-card">
+        <div class="video-thumb">
+          <i class="fas fa-play-circle"></i>
+        </div>
+        <div class="video-card-content">
+          <h4>Interview on Business Growth</h4>
+          <p>CEO discusses building a trusted edible oil brand and market leadership.</p>
         </div>
       </div>
-      <div class="brand-card">
-        <img src="images/image2.jpeg" alt="AfriRich Cooking Oil">
-        <div class="brand-info">
-          <h4>AfriRich Cooking Oil</h4>
-          <p>Nutritious and affordable oil for everyday family use. Provides essential nutrients for healthy living.</p>
+      <div class="video-card">
+        <div class="video-thumb">
+          <i class="fas fa-play-circle"></i>
+        </div>
+        <div class="video-card-content">
+          <h4>Market Expansion Strategy</h4>
+          <p>Insights into nationwide distribution and regional growth opportunities.</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-thumb">
+          <i class="fas fa-play-circle"></i>
+        </div>
+        <div class="video-card-content">
+          <h4>Quality & Sustainability</h4>
+          <p>How Togas ensures premium standards and environmental responsibility.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="join" id="distributorForm">
-  <div class="join-container">
-    <div class="join-info">
-      <h3>Join Our Distributor Network</h3>
-      <p>Ready to grow your business with us? Fill out the form below and our team will contact you within 24 hours to discuss partnership opportunities.</p>
+<section class="posts">
+  <div class="posts-container">
+    <h3>Latest Blog Posts</h3>
+    <div class="post-grid">
+      <div class="post-card">
+        <span>Industry Insight</span>
+        <h4>The Future of Edible Oil in Nigeria</h4>
+        <p>Understanding consumer demand, market growth opportunities, and emerging trends in Nigeria's edible oil industry.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <span>Company News</span>
+        <h4>Expanding Our Distributor Network</h4>
+        <p>How Togas is empowering partners nationwide with training, support, and competitive business opportunities.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
+      <div class="post-card">
+        <span>Leadership</span>
+        <h4>A Word from Our CEO</h4>
+        <p>Vision, values, and our long-term commitment to quality, customer satisfaction, and community development.</p>
+        <a href="#" class="read-more">Read More →</a>
+      </div>
     </div>
-    <div class="form-container">
-      <form id="distributorApplication">
-        <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <input type="text" id="fullName" placeholder="Enter your full name" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="phoneNumber">Phone Number</label>
-          <input type="tel" id="phoneNumber" placeholder="Enter your phone number" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" placeholder="Enter your email address" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="company">Company/Business Name</label>
-          <input type="text" id="company" placeholder="Enter company name (if applicable)">
-        </div>
-        
-        <div class="form-group">
-          <label for="location">Location/City</label>
-          <input type="text" id="location" placeholder="Enter your location" required>
-        </div>
-        
-        <div class="form-group">
-          <label for="experience">Previous Distribution Experience</label>
-          <select id="experience" required>
-            <option value="">Select experience level</option>
-            <option value="beginner">Beginner - New to distribution</option>
-            <option value="intermediate">Intermediate - 1-3 years experience</option>
-            <option value="experienced">Experienced - 3+ years experience</option>
-            <option value="expert">Expert - 5+ years experience</option>
-          </select>
-        </div>
-        
-        <button type="submit">Submit Application</button>
-      </form>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="testimonials-container">
+    <h3>What People Say About Us</h3>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p>
+          "Partnering with Togas has significantly improved my business. Their support, reliability, and quality products are unmatched in the market."
+        </p>
+        <h5>Distributor – Lagos</h5>
+        <span>5 Years Partner</span>
+      </div>
+      <div class="testimonial">
+        <p>
+          "The quality of Togas cooking oil keeps customers coming back. It's a brand both retailers and consumers trust for consistency and value."
+        </p>
+        <h5>Retailer – Ibadan</h5>
+        <span>Verified Seller</span>
+      </div>
+      <div class="testimonial">
+        <p>
+          "Togas Edible Oil stands out for its consistency, quality, and professional approach. My food business has grown significantly since switching."
+        </p>
+        <h5>Food Vendor – Abuja</h5>
+        <span>Customer</span>
+      </div>
     </div>
+  </div>
+</section>
+
+<section class="newsletter">
+  <div class="newsletter-container">
+    <h3>Stay Updated</h3>
+    <p>Subscribe to our newsletter for the latest updates, industry insights, and special offers from Togas Edible Oil.</p>
+    <form class="newsletter-form">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
   </div>
 </section>
 
@@ -780,29 +828,16 @@ footer {
       });
     }
     
-    // Form submission
-    const form = document.getElementById('distributorApplication');
-    if (form) {
-      form.addEventListener('submit', function(e) {
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        // Get form data
-        const formData = {
-          name: document.getElementById('fullName').value,
-          phone: document.getElementById('phoneNumber').value,
-          email: document.getElementById('email').value,
-          company: document.getElementById('company').value,
-          location: document.getElementById('location').value,
-          experience: document.getElementById('experience').value
-        };
-        
-        // In a real application, you would send this data to a server
-        // For now, we'll just show an alert
-        alert('Thank you for your application! Our team will contact you within 24 hours.');
-        form.reset();
-        
-        // Scroll to top
-        window.scrollTo({top: 0, behavior: 'smooth'});
+        const emailInput = this.querySelector('input[type="email"]');
+        if (emailInput.value) {
+          alert('Thank you for subscribing to our newsletter!');
+          emailInput.value = '';
+        }
       });
     }
     

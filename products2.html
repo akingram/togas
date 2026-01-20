@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Premium Edible Oils - TOGAS VENTURES</title>
+    <meta name="description" content="Discover TOGAS VENTURES premium edible oils - Refined Palm Olein, Soybean Oil, Palm Oil, and Afririch specialty oils. NAFDAC & SON certified quality."/>
+    
+    <style>
+        /* Color Variables - Matching Your Theme */
+        :root {
+            --color-primary: #2C1E0F; /* Dark Brown */
+            --color-secondary: #A67C52; /* Medium Brown */
+            --color-accent: #F4E5C8; /* Beige/Cream */
+            --color-light: #ffffff;
+            --color-dark: #0d141a;
+            --color-gold: #D4AF37;
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 3rem;
+            --spacing-xl: 5rem;
+            
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --shadow: 0 8px 30px rgba(44, 30, 15, 0.1);
+            --shadow-hover: 0 15px 40px rgba(44, 30, 15, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--color-primary);
+            background: linear-gradient(135deg, #F9F5F0 0%, #FFFFFF 100%);
+            min-height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-sm);
+        }
+
+        /* Header - Matching Your Site */
+        .site-header {
+            background: var(--color-primary);
+            padding: var(--spacing-sm) 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(44, 30, 15, 0.2);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--color-light);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--color-accent);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-link {
+            color: var(--color-light);
+            text-decoration: none;
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: rgba(244, 229, 200, 0.1);
+            color: var(--color-accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 30, 15, 0.9), rgba(44, 30, 15, 0.9)),
+                        url('https://togasoil.com/wp-content/uploads/2025/06/All-prod.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: var(--color-light);
+            padding: var(--spacing-xl) 0;
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-sm);
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto var(--spacing-md);
+            opacity: 0.9;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--color-light);
+            border: 2px solid var(--color-accent);
+            color: var(--color-primary);
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: var(--color-light);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--color-secondary), var(--color-accent));
+            margin: var(--spacing-sm) auto;
+            border-radius: 2px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* Product Card */
+        .product-card {
+            background: var(--color-light);
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .product-card.premium {
+            border: 3px solid var(--color-gold);
+            position: relative;
+        }
+
+        .product-card.premium::before {
+            content: 'PREMIUM';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--color-gold);
+            color: var(--color-primary);
+            padding: var(--spacing-xs) var(--spacing-lg);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transform: rotate(45deg);
+            z-index: 2;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: var(--spacing-md);
+        }
+
+        .product-category {
+            color: var(--color-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .product-title {
+            font-size: 1.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 700;
+        }
+
+        .product-description {
+            color: var(--color-dark);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.6;
+        }
+
+        .product-features {
+            list-style: none;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .product-features li {
+            padding: var(--spacing-xs) 0;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .product-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-secondary);
+            font-weight: bold;
+        }
+
+        .product-sizes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .size-badge {
+            background: var(--color-accent);
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .size-badge.highlight {
+            background: var(--color-secondary);
+            color: var(--color-light);
+        }
+
+        .product-actions {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .product-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .price-unit {
+            font-size: 1rem;
+            color: var(--color-secondary);
+        }
+
+        .cta-button {
+            background: var(--color-primary);
+            color: var(--color-light);
+            border: none;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            min-width: 150px;
+        }
+
+        .cta-button:hover {
+            background: var(--color-secondary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(166, 124, 82, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--color-secondary);
+            color: var(--color-light);
+        }
+
+        /* Certifications Section */
+        .certifications {
+            background: var(--color-accent);
+            padding: var(--spacing-xl) 0;
+            margin: var(--spacing-xl) 0;
+            text-align: center;
+        }
+
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .certification-item {
+            background: var(--color-light);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .certification-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .certification-icon {
+            font-size: 3rem;
+            color: var(--color-secondary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Features Section */
+        .features {
+            padding: var(--spacing-xl) 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+
+        /* Footer */
+        .site-footer {
+            background: var(--color-primary);
+            color: var(--color-light);
+            padding: var(--spacing-xl) 0 var(--spacing-md);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-md);
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .footer-links a {
+            color: var(--color-light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--color-accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-sm);
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: var(--spacing-md);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(44, 30, 15, 0.9);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: var(--color-light);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--color-primary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--color-primary);
+                flex-direction: column;
+                padding: var(--spacing-md);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-btn {
+                padding: var(--spacing-xs) var(--spacing-md);
+                font-size: 0.9rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+            
+            .cta-button {
+                width: 100%;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .product-card {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo">TOGAS <span>VENTURES</span></a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link active">Products</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Edible Oils</h1>
+            <p>Discover our exquisite collection of NAFDAC & SON certified edible oils. From everyday cooking to premium specialty oils, we bring quality and health to your kitchen.</p>
+            <a href="#products" class="cta-button">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <div class="container">
+        <div class="category-filter" id="categoryFilter">
+            <button class="filter-btn active" data-category="all">All Products</button>
+            <button class="filter-btn" data-category="standard">
+                <span>🛒</span> Standard Range
+            </button>
+            <button class="filter-btn" data-category="premium">
+                <span>⭐</span> Afririch Premium
+            </button>
+            <button class="filter-btn" data-category="palm">
+                <span>🌴</span> Palm Oils
+            </button>
+            <button class="filter-btn" data-category="soybean">
+                <span>🌱</span> Soybean Oils
+            </button>
+        </div>
+    </div>
+
+    <!-- Products Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Product Collection</h2>
+                <p>Carefully crafted for quality, health, and taste</p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+                <!-- Standard Products -->
+                <div class="product-card fade-in" data-category="standard palm">
+                    <div class="product-image">
+                        <img src="https://togasoil.com/wp-content/uploads/2025/06/Togas-in-a-bottle.jpeg" alt="Refined Palm Olein">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Standard Range</div>
+                        <h3 class="product-title">Refined Palm Olein</h3>
+                        <p class="product-description">Premium quality palm olein with perfect balance of taste and nutrition. Ideal for frying, cooking, and baking.</p>
+                        
+                        <ul class="product-features">
+                            <li>Rich in Vitamin A & E</li>
+                            <li>Low cholesterol content</li>
+                            <li>High smoke point</li>
+                            <li>Long shelf life</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge">25L</span>
+                            <span class="size-badge">10L</span>
+                            <span class="size-badge">5L</span>
+                            <span class="size-badge">3L</span>
+                            <span class="size-badge highlight">2L</span>
+                            <span class="size-badge">1L</span>
+                            <span class="size-badge">0.75L</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>5,500
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Refined Palm Olein')">Inquire Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="standard soybean">
+                    <div class="product-image">
+                        <img src="https://togasoil.com/wp-content/uploads/2025/06/Small-veg-oil.jpeg" alt="Refined Soybean Oil">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Standard Range</div>
+                        <h3 class="product-title">Refined Soybean Oil</h3>
+                        <p class="product-description">Light, versatile cooking oil rich in Omega-3 fatty acids. Perfect for salads, frying, and healthy cooking.</p>
+                        
+                        <ul class="product-features">
+                            <li>High in Omega-3 & 6</li>
+                            <li>Light and neutral taste</li>
+                            <li>Heart-healthy option</li>
+                            <li>Ideal for all cooking methods</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge">25L</span>
+                            <span class="size-badge">10L</span>
+                            <span class="size-badge">5L</span>
+                            <span class="size-badge">3L</span>
+                            <span class="size-badge highlight">2L</span>
+                            <span class="size-badge">1L</span>
+                            <span class="size-badge">0.75L</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>6,200
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Refined Soybean Oil')">Inquire Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card fade-in" data-category="standard palm">
+                    <div class="product-image">
+                        <img src="https://togasoil.com/wp-content/uploads/2025/06/All-prod.jpeg" alt="Refined Palm Oil">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Standard Range</div>
+                        <h3 class="product-title">Refined Palm Oil</h3>
+                        <p class="product-description">Traditional red palm oil with authentic taste. Rich in antioxidants and perfect for African cuisine.</p>
+                        
+                        <ul class="product-features">
+                            <li>Rich natural red color</li>
+                            <li>High antioxidant content</li>
+                            <li>Authentic traditional taste</li>
+                            <li>Ideal for soups and stews</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge highlight">5L</span>
+                            <span class="size-badge">3L</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>4,800
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Refined Palm Oil')">Inquire Now</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Afririch Premium Products -->
+                <div class="product-card premium fade-in" data-category="premium">
+                    <div class="product-image">
+                        <img src="https://togasoil.com/wp-content/uploads/2025/06/afririch-premium-line.jpg" alt="Afririch Cold-Pressed Palm Oil">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Afririch Premium</div>
+                        <h3 class="product-title">Cold-Pressed Palm Oil</h3>
+                        <p class="product-description">Unrefined, traditional red palm oil extracted using cold-press methods. Rich in vitamins and antioxidants with authentic flavor.</p>
+                        
+                        <ul class="product-features">
+                            <li>Cold-press extraction</li>
+                            <li>Unrefined & natural</li>
+                            <li>Rich in Vitamin A & E</li>
+                            <li>Authentic African flavor</li>
+                            <li>Antioxidant rich</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge highlight">5L</span>
+                            <span class="size-badge">2L</span>
+                            <span class="size-badge">1L</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>8,500
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Afririch Cold-Pressed Palm Oil')">Order Premium</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card premium fade-in" data-category="premium">
+                    <div class="product-image">
+                        <img src="https://togasoil.com/wp-content/uploads/2025/06/afririch-bottles-display.jpg" alt="Afririch Groundnut Oil">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Afririch Premium</div>
+                        <h3 class="product-title">Premium Groundnut Oil</h3>
+                        <p class="product-description">Nutty, aromatic peanut oil with distinctive flavor. Perfect for dressings, marinades, and high-heat cooking.</p>
+                        
+                        <ul class="product-features">
+                            <li>Distinctive nutty flavor</li>
+                            <li>High smoke point</li>
+                            <li>Rich in Vitamin E</li>
+                            <li>Heart-healthy monounsaturated fats</li>
+                            <li>Ideal for Asian cuisine</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge highlight">5L</span>
+                            <span class="size-badge">2L</span>
+                            <span class="size-badge">1L</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>9,200
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Afririch Groundnut Oil')">Order Premium</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card premium fade-in" data-category="premium">
+                    <div class="product-content">
+                        <div class="product-category">Afririch Premium</div>
+                        <h3 class="product-title">Virgin Coconut Oil</h3>
+                        <p class="product-description">Pure, unrefined virgin coconut oil. Perfect for cooking, baking, and skincare. Rich in lauric acid.</p>
+                        
+                        <ul class="product-features">
+                            <li>Cold-pressed extraction</li>
+                            <li>Unrefined & natural</li>
+                            <li>Rich in lauric acid</li>
+                            <li>For cooking & skincare</li>
+                            <li>Long shelf life</li>
+                        </ul>
+                        
+                        <div class="product-sizes">
+                            <span class="size-badge highlight">2L</span>
+                            <span class="size-badge">1L</span>
+                            <span class="size-badge">500ml</span>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <div class="product-price">
+                                <span class="price-unit">From ₦</span>7,800
+                            </div>
+                            <button class="cta-button" onclick="openInquiry('Afririch Virgin Coconut Oil')">Order Premium</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--color-primary);">Our Certifications</h2>
+                <p>Quality assurance and regulatory compliance</p>
+            </div>
+            
+            <div class="certifications-grid">
+                <div class="certification-item">
+                    <div class="certification-icon">🏅</div>
+                    <h3>NAFDAC Certified</h3>
+                    <p>Fully licensed and certified by National Agency for Food and Drug Administration and Control</p>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="certification-icon">⭐</div>
+                    <h3>SON Certified</h3>
+                    <p>Compliant with Standards Organization of Nigeria quality standards</p>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="certification-icon">🔬</div>
+                    <h3>Quality Tested</h3>
+                    <p>Regular quality control and laboratory testing for purity and safety</p>
+                </div>
+                
+                <div class="certification-item">
+                    <div class="certification-icon">🌿</div>
+                    <h3>Health Compliant</h3>
+                    <p>All products meet health and nutritional standards for safe consumption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose TOGAS Oils</h2>
+                <p>Excellence in every drop</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🏭</div>
+                    <h3>Local Production</h3>
+                    <p>Supporting Nigerian farmers and local economy through sustainable sourcing</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">❤️</div>
+                    <h3>Health First</h3>
+                    <p>Promoting healthy living with pure, nutritious oils for every kitchen</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">🚚</div>
+                    <h3>Nationwide Delivery</h3>
+                    <p>Reliable delivery across Nigeria with flexible distribution options</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">💼</div>
+                    <h3>Bulk & Retail</h3>
+                    <p>Catering to both wholesale buyers and individual customers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inquiry Modal -->
+    <div class="modal" id="inquiryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Product Inquiry</h2>
+                <button class="close-modal" onclick="closeModal()">×</button>
+            </div>
+            <form id="inquiryForm">
+                <input type="hidden" id="productName" name="productName">
+                
+                <div style="margin-bottom: var(--spacing-md);">
+                    <label for="name" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Full Name</label>
+                    <input type="text" id="name" name="name" required 
+                           style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-accent); border-radius: var(--border-radius);">
+                </div>
+                
+                <div style="margin-bottom: var(--spacing-md);">
+                    <label for="email" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Email Address</label>
+                    <input type="email" id="email" name="email" required 
+                           style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-accent); border-radius: var(--border-radius);">
+                </div>
+                
+                <div style="margin-bottom: var(--spacing-md);">
+                    <label for="phone" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required 
+                           style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-accent); border-radius: var(--border-radius);">
+                </div>
+                
+                <div style="margin-bottom: var(--spacing-md);">
+                    <label for="quantity" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Quantity Required</label>
+                    <input type="text" id="quantity" name="quantity" required 
+                           style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-accent); border-radius: var(--border-radius);"
+                           placeholder="e.g., 10 bottles of 5L">
+                </div>
+                
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <label for="message" style="display: block; margin-bottom: var(--spacing-xs); font-weight: 600;">Additional Information</label>
+                    <textarea id="message" name="message" rows="4"
+                              style="width: 100%; padding: var(--spacing-sm); border: 2px solid var(--color-accent); border-radius: var(--border-radius);"
+                              placeholder="Any specific requirements or delivery instructions..."></textarea>
+                </div>
+                
+                <button type="submit" class="cta-button" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TOGAS VENTURES</h3>
+                    <p>Quality edible oils promoting healthy living across Nigeria and beyond.</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com">FB</a>
+                        <a href="https://instagram.com">IG</a>
+                        <a href="https://twitter.com">X</a>
+                        <a href="mailto:TogasVentures@gmail.com">✉</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li>📧 TogasVentures@gmail.com</li>
+                        <li>📞 +234 07065533880</li>
+                        <li>📍 Nigeria-Wide Delivery</li>
+                        <li>🏢 NAFDAC & SON Certified</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Business Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 8AM - 6PM</li>
+                        <li>Saturday: 9AM - 4PM</li>
+                        <li>Sunday: Closed</li>
+                        <li>24/7 Online Inquiries</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2025 TOGAS VENTURES. All rights reserved. | NAFDAC & SON Certified</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mainNav').classList.toggle('active');
+        });
+
+        // Product Filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                
+                // Filter products
+                productCards.forEach(card => {
+                    if (category === 'all' || card.dataset.category.includes(category)) {
+                        card.style.display = 'block';
+                        card.classList.add('fade-in');
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('fade-in');
+                    }
+                });
+            });
+        });
+
+        // Modal Functions
+        function openInquiry(productName) {
+            document.getElementById('productName').value = productName;
+            document.getElementById('inquiryModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('inquiryModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('inquiryModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        // Form Submission
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                product: document.getElementById('productName').value,
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                quantity: document.getElementById('quantity').value,
+                message: document.getElementById('message').value
+            };
+            
+            // In a real implementation, you would send this to your server
+            // For now, we'll show an alert
+            alert(`Thank you for your inquiry about ${formData.product}!\n\nWe have received your request and will contact you at ${formData.phone} within 24 hours.`);
+            
+            // Reset form and close modal
+            this.reset();
+            closeModal();
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add hover effect to product cards
+        productCards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

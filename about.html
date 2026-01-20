@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Togas Edible Oil NG Ltd</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -12,10 +12,12 @@
       --green-light: #eef4ef;
       --green-dark: #4a6550;
       --green-footer: #4a6550;
-      --text-dark: #1e1e1e;
-      --text-light: #666;
+      --text-dark: #1a1a1a;
+      --text-medium: #333333;
+      --text-light: #555555;
       --white: #ffffff;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
     }
 
     * {
@@ -34,6 +36,7 @@
       background: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
+      font-weight: 500;
     }
 
     /* NAVBAR */
@@ -58,8 +61,8 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 24px;
+      font-weight: 800;
+      font-size: 26px;
       color: var(--green);
       display: flex;
       align-items: center;
@@ -68,7 +71,7 @@
 
     .logo i {
       margin-right: 10px;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .nav-links {
@@ -79,9 +82,9 @@
     nav a {
       margin-left: 32px;
       text-decoration: none;
-      color: #333;
+      color: var(--text-medium);
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.3s ease;
       position: relative;
     }
@@ -92,6 +95,7 @@
 
     nav a.active {
       color: var(--green);
+      font-weight: 700;
     }
 
     nav a.active::after {
@@ -135,12 +139,14 @@
       margin-bottom: 24px;
       color: var(--text-dark);
       line-height: 1.2;
+      font-weight: 800;
     }
 
     .hero-content p {
       font-size: 18px;
-      color: var(--text-light);
+      color: var(--text-medium);
       margin-bottom: 20px;
+      font-weight: 500;
     }
 
     .hero-image-container {
@@ -170,6 +176,12 @@
     .image-overlay h4 {
       font-size: 18px;
       margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .image-overlay p {
+      color: rgba(255, 255, 255, 0.95);
+      font-weight: 500;
     }
 
     /* CONTENT SECTIONS */
@@ -189,16 +201,25 @@
       color: var(--text-dark);
       position: relative;
       display: inline-block;
+      font-weight: 800;
     }
 
     h2::after {
       content: '';
       position: absolute;
       width: 60%;
-      height: 3px;
+      height: 4px;
       background: var(--green);
       bottom: -10px;
       left: 0;
+    }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+      font-weight: 700;
     }
 
     .section-title {
@@ -215,8 +236,9 @@
     .section-title p {
       max-width: 700px;
       margin: 20px auto 0;
-      color: var(--text-light);
+      color: var(--text-medium);
       font-size: 18px;
+      font-weight: 500;
     }
 
     /* QUALITY SECTION */
@@ -238,6 +260,14 @@
       box-shadow: var(--shadow);
     }
 
+    .quality-grid p {
+      font-size: 17px;
+      color: var(--text-medium);
+      margin-bottom: 25px;
+      font-weight: 500;
+      line-height: 1.8;
+    }
+
     .checklist {
       list-style: none;
       margin-top: 30px;
@@ -249,6 +279,7 @@
       align-items: flex-start;
       font-size: 17px;
       color: var(--text-dark);
+      font-weight: 500;
     }
 
     .checklist li i {
@@ -279,6 +310,7 @@
 
     .brand-card:hover {
       transform: translateY(-10px);
+      box-shadow: var(--shadow-hover);
     }
 
     .brand-image {
@@ -296,11 +328,19 @@
       font-size: 24px;
       margin-bottom: 12px;
       color: var(--green);
+      font-weight: 700;
     }
 
     .brand-content p {
-      color: var(--text-light);
+      color: var(--text-medium);
       margin-bottom: 20px;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .brand-content strong {
+      color: var(--text-dark);
+      font-weight: 700;
     }
 
     /* VALUES SECTION */
@@ -321,10 +361,13 @@
       border-radius: 12px;
       background: var(--green-light);
       transition: transform 0.3s ease;
+      border: 2px solid transparent;
     }
 
     .value-card:hover {
       transform: translateY(-5px);
+      border-color: var(--green);
+      box-shadow: var(--shadow-hover);
     }
 
     .value-icon {
@@ -337,6 +380,13 @@
       font-size: 20px;
       margin-bottom: 15px;
       color: var(--text-dark);
+      font-weight: 700;
+    }
+
+    .value-card p {
+      color: var(--text-medium);
+      font-weight: 500;
+      line-height: 1.7;
     }
 
     /* CTA */
@@ -378,14 +428,16 @@
       margin: 0 auto 40px;
       position: relative;
       z-index: 2;
-      color: rgba(255, 255, 255, 0.9);
+      color: rgba(255, 255, 255, 0.95);
       font-size: 18px;
+      font-weight: 500;
+      line-height: 1.8;
     }
 
     .cta .btn {
       background: var(--white);
       color: var(--green);
-      font-weight: 600;
+      font-weight: 700;
       padding: 18px 40px;
       font-size: 18px;
       position: relative;
@@ -394,6 +446,8 @@
       border-radius: 8px;
       display: inline-block;
       transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .cta .btn:hover {
@@ -405,7 +459,7 @@
     /* FOOTER */
     footer {
       background: var(--green-footer);
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.95);
       padding: 60px 20px 30px;
     }
 
@@ -420,32 +474,34 @@
 
     .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 24px;
+      font-weight: 800;
+      font-size: 26px;
       color: var(--white);
       margin-bottom: 20px;
     }
 
     .footer-about p {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
+      font-weight: 500;
     }
 
     .footer-links h4 {
       color: var(--white);
       margin-bottom: 20px;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .footer-links a {
       display: block;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
       margin-bottom: 12px;
       transition: color 0.3s;
       display: flex;
       align-items: center;
+      font-weight: 500;
     }
 
     .footer-links a i {
@@ -455,6 +511,7 @@
 
     .footer-links a:hover {
       color: var(--white);
+      font-weight: 600;
     }
 
     .copyright {
@@ -463,8 +520,9 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       max-width: 1200px;
       margin: auto;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 14px;
+      font-weight: 500;
     }
 
     /* RESPONSIVE */
@@ -495,6 +553,10 @@
 
       h2 {
         font-size: 36px;
+      }
+      
+      h3 {
+        font-size: 28px;
       }
     }
 
@@ -531,6 +593,11 @@
         margin: 15px 0;
         font-size: 18px;
         margin-left: 0;
+        font-weight: 600;
+      }
+      
+      nav a.active {
+        font-weight: 700;
       }
 
       nav a.active::after {
@@ -575,9 +642,19 @@
       h2 {
         font-size: 30px;
       }
+      
+      h3 {
+        font-size: 24px;
+      }
 
       .brands-grid {
         grid-template-columns: 1fr;
+      }
+      
+      .cta .btn {
+        display: block;
+        width: 100%;
+        padding: 16px 20px;
       }
     }
   </style>
@@ -600,7 +677,7 @@
       <a class="active" href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="distributor.html">Become a Distributor</a>
-      <a href="#">Blog</a>
+      <a href="/blog.html">Blog</a>
     </nav>
   </div>
 </header>

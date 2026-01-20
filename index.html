@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Togas Edible Oil NG Ltd</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
@@ -12,10 +12,12 @@
       --green-light: #eef4ef;
       --green-dark: #4a6550;
       --green-footer: #4a6550;
-      --text-dark: #1e1e1e;
-      --text-light: #666;
+      --text-dark: #1a1a1a;
+      --text-medium: #333333;
+      --text-light: #555555;
       --white: #ffffff;
       --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
     }
 
     * {
@@ -34,6 +36,7 @@
       background: var(--white);
       line-height: 1.6;
       overflow-x: hidden;
+      font-weight: 500;
     }
 
     /* NAVBAR */
@@ -58,8 +61,8 @@
 
     .logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 24px;
+      font-weight: 800;
+      font-size: 26px;
       color: var(--green);
       display: flex;
       align-items: center;
@@ -67,7 +70,7 @@
 
     .logo i {
       margin-right: 10px;
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .nav-links {
@@ -78,9 +81,9 @@
     nav a {
       margin-left: 32px;
       text-decoration: none;
-      color: #333;
+      color: var(--text-medium);
       font-size: 15px;
-      font-weight: 500;
+      font-weight: 600;
       transition: color 0.3s ease;
       position: relative;
     }
@@ -91,6 +94,7 @@
 
     nav a.active {
       color: var(--green);
+      font-weight: 700;
     }
 
     nav a.active::after {
@@ -136,20 +140,22 @@
       margin-bottom: 20px;
       line-height: 1.2;
       color: var(--text-dark);
+      font-weight: 800;
     }
 
     .hero-text p {
       font-size: 18px;
-      color: var(--text-light);
+      color: var(--text-medium);
       margin-bottom: 40px;
       max-width: 500px;
+      font-weight: 500;
     }
 
     .btn {
       padding: 16px 32px;
       border-radius: 8px;
       font-size: 16px;
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
       display: inline-block;
       margin-right: 16px;
@@ -167,20 +173,21 @@
     .btn-primary:hover {
       background: var(--green-dark);
       transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-hover);
     }
 
     .btn-outline {
       border: 2px solid var(--green);
       color: var(--green);
       background: transparent;
+      font-weight: 700;
     }
 
     .btn-outline:hover {
       background: var(--green);
       color: var(--white);
       transform: translateY(-3px);
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-hover);
     }
 
     .hero-image {
@@ -214,13 +221,14 @@
       color: var(--text-dark);
       position: relative;
       display: inline-block;
+      font-weight: 800;
     }
 
     h2::after {
       content: '';
       position: absolute;
       width: 60%;
-      height: 3px;
+      height: 4px;
       background: var(--green);
       bottom: -10px;
       left: 0;
@@ -228,9 +236,11 @@
 
     .section-description {
       font-size: 18px;
-      color: var(--text-light);
+      color: var(--text-medium);
       max-width: 800px;
       margin-top: 40px;
+      font-weight: 500;
+      line-height: 1.8;
     }
 
     /* BRANDS */
@@ -269,19 +279,21 @@
 
     .brand-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      box-shadow: var(--shadow-hover);
     }
 
     .brand-info h3 {
       font-size: 24px;
       margin-bottom: 12px;
       color: var(--green);
+      font-weight: 700;
     }
 
     .brand-info p {
-      font-size: 15px;
-      color: var(--text-light);
+      font-size: 16px;
+      color: var(--text-medium);
       max-width: 240px;
+      font-weight: 500;
     }
 
     .brand-image {
@@ -294,6 +306,7 @@
       justify-content: center;
       background: var(--green-light);
       padding: 10px;
+      border: 2px solid var(--green-light);
     }
 
     .brand-image img {
@@ -338,7 +351,7 @@
     .cta .btn {
       background: var(--white);
       color: var(--green);
-      font-weight: 600;
+      font-weight: 700;
       padding: 18px 40px;
       font-size: 18px;
       position: relative;
@@ -354,7 +367,7 @@
     /* FOOTER */
     footer {
       background: var(--green-footer);
-      color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.95);
       padding: 60px 20px 30px;
     }
 
@@ -369,32 +382,34 @@
 
     .footer-logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 24px;
+      font-weight: 800;
+      font-size: 26px;
       color: var(--white);
       margin-bottom: 20px;
     }
 
     .footer-about p {
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.7;
+      font-weight: 500;
     }
 
     .footer-links h4 {
       color: var(--white);
       margin-bottom: 20px;
       font-size: 18px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .footer-links a {
       display: block;
-      color: rgba(255, 255, 255, 0.75);
+      color: rgba(255, 255, 255, 0.9);
       text-decoration: none;
       margin-bottom: 12px;
       transition: color 0.3s;
       display: flex;
       align-items: center;
+      font-weight: 500;
     }
 
     .footer-links a i {
@@ -404,6 +419,7 @@
 
     .footer-links a:hover {
       color: var(--white);
+      font-weight: 600;
     }
 
     .copyright {
@@ -412,8 +428,9 @@
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       max-width: 1200px;
       margin: auto;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 14px;
+      font-weight: 500;
     }
 
     /* RESPONSIVE */
@@ -471,6 +488,11 @@
         margin: 15px 0;
         font-size: 18px;
         margin-left: 0;
+        font-weight: 600;
+      }
+
+      nav a.active {
+        font-weight: 700;
       }
 
       nav a.active::after {
@@ -552,7 +574,7 @@
       <a href="about.html">About</a>
       <a href="products.html">Products</a>
       <a href="distributor.html">Become a Distributor</a>
-      <a href="#">Blog</a>
+      <a href="/blog.html">Blog</a>
     </nav>
   </div>
 </header>
@@ -566,8 +588,7 @@
       <a href="products.html" class="btn btn-outline">View Products</a>
     </div>
     <div class="hero-image">
-      <!-- Original hero image from your code -->
-      <img src="images/real.jpeg" alt="Edible Oil Products">
+      <img src="images/real.jpeg" alt="Premium edible oil">
     </div>
   </div>
 </section>
@@ -576,7 +597,7 @@
   <div class="container">
     <h2>About Togas Edible Oil NG Ltd</h2>
     <p class="section-description">
-      Togas Edible Oil NG Ltd is a Nigerian-owned food manufacturing company committed to producing high-quality, affordable and nutritious edible oils that meet national and international standards.
+      Togas Edible Oil NG Ltd is a Nigerian-owned food manufacturing company committed to producing high-quality, affordable and nutritious edible oils that meet national and international standards. We pride ourselves on delivering excellence through innovation and dedication to our customers' well-being.
     </p>
 
     <h2 style="margin-top:80px">Our Brands</h2>
@@ -588,7 +609,6 @@
           <p>Premium refined soya oil for cooking and salad</p>
         </div>
         <div class="brand-image">
-          <!-- Original brand image from your code -->
           <img src="images/image1.jpeg" alt="Togas Oil">
         </div>
       </div>
@@ -599,7 +619,6 @@
           <p>Nutritious and affordable cooking oil for everyday use</p>
         </div>
         <div class="brand-image">
-          <!-- Original brand image from your code -->
           <img src="images/image2.jpeg" alt="AfriRich Oil">
         </div>
       </div>
