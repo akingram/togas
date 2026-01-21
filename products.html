@@ -519,6 +519,7 @@ footer {
     height: auto;
     max-height: calc(100vh - 80px);
     overflow-y: auto;
+    display: flex; /* Ensures menu displays properly when active */
   }
 
   .nav-links.active {
@@ -620,7 +621,7 @@ footer {
       <a href="about.html">About</a>
       <a class="active" href="products.html">Products</a>
       <a href="distributor.html">Become a Distributor</a>
-      <a href="/blog.html">Blog</a>
+      <a href="blog.html">Blog</a>
     </nav>
   </div>
 </header>
@@ -821,44 +822,66 @@ footer {
 </footer>
 
 <script>
-  // Mobile menu toggle
+  // Mobile menu toggle - FIXED VERSION
   document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     
+    // Check if elements exist
     if (menuToggle && navLinks) {
-      menuToggle.addEventListener('click', () => {
+      // Toggle mobile menu
+      menuToggle.addEventListener('click', function(e) {
+        e.stopPropagation(); // Prevent event bubbling
         navLinks.classList.toggle('active');
+        // Change icon based on menu state
         if (navLinks.classList.contains('active')) {
           menuToggle.innerHTML = '<i class="fas fa-times"></i>';
+          menuToggle.setAttribute('aria-expanded', 'true');
         } else {
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
       
+      // Close mobile menu when clicking on a link
       document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         });
       });
       
-      document.addEventListener('click', (event) => {
-        const isClickInsideNav = navLinks.contains(event.target);
-        const isClickOnToggle = menuToggle.contains(event.target);
-        
-        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+          if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            menuToggle.setAttribute('aria-expanded', 'false');
+          }
         }
       });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    } else {
+      console.error('Menu elements not found. Check your HTML IDs.');
     }
     
+    // Optional: Close menu on window resize (if resizing to desktop)
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         if (menuToggle) {
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+          menuToggle.setAttribute('aria-expanded', 'false');
         }
       }
     });
