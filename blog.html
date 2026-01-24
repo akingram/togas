@@ -149,7 +149,7 @@ nav a.active::after{
   line-height:1.7;
 }
 
-/* ================= CEO VIDEOS ================= */
+/* ================= CEO VIDEOS - UPDATED FOR LOCAL VIDEOS ================= */
 .videos{
   padding:100px 20px;
   background:var(--white);
@@ -189,31 +189,137 @@ nav a.active::after{
   box-shadow:var(--shadow-hover);
 }
 
-.video-thumb{
-  background:var(--green);
+.video-player-container {
+  position: relative;
   height:200px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:60px;
-  color:var(--white);
-  position:relative;
   overflow:hidden;
+  cursor: pointer;
 }
 
-.video-thumb i {
-  position:relative;
-  z-index:2;
+.video-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
 }
 
-.video-thumb::after {
-  content:'';
-  position:absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.1);
+.video-card:hover .video-thumb {
+  transform: scale(1.05);
+}
+
+.video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: none;
+}
+
+.video-player-container.active .video-thumb {
+  display: none;
+}
+
+.video-player-container.active .video-player {
+  display: block;
+}
+
+.video-player-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  transition: background 0.3s ease;
+}
+
+.video-player-container.active::after {
+  background: rgba(0, 0, 0, 0); /* Remove overlay when video is playing */
+}
+
+.play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--green);
+  color: var(--white);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: 2;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.video-card:hover .play-btn {
+  background: var(--green-dark);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-player-container.active .play-btn {
+  display: none; /* Hide play button when video is playing */
+}
+
+.video-duration {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  z-index: 2;
+}
+
+.video-player-container.active .video-duration {
+  display: none; /* Hide duration when video is playing */
+}
+
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.video-player-container.active .video-controls {
+  opacity: 1;
+}
+
+.control-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  transition: color 0.3s ease;
+}
+
+.control-btn:hover {
+  color: var(--green);
+}
+
+.time-display {
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .video-card-content{
@@ -630,6 +736,18 @@ footer {
   .newsletter-form button {
     width: 100%;
   }
+  
+  .video-controls {
+    padding: 5px;
+  }
+  
+  .control-btn {
+    font-size: 14px;
+  }
+  
+  .time-display {
+    font-size: 10px;
+  }
 }
 </style>
 </head>
@@ -671,31 +789,102 @@ footer {
   <div class="videos-container">
     <h3>CEO Interviews & Media Appearances</h3>
     <div class="video-grid">
+      <!-- Video 1 - Replace with your video file -->
       <div class="video-card">
-        <div class="video-thumb">
-          <i class="fas fa-play-circle"></i>
+        <div class="video-player-container" data-video="images/videos/ceo.mp4" data-thumb="images/video-thumb1.jpg">
+          <!-- Video Player -->
+          <video class="video-player" preload="metadata" playsinline>
+            <source src="images/videos/ceo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          
+          <!-- Video Thumbnail -->
+          <!-- <img class="video-thumb" src="images/video-thumb1.jpg" alt="CEO Interview on Business Growth"> -->
+          
+          <!-- Play Button -->
+          <div class="play-btn">
+            <i class="fas fa-play"></i>
+          </div>
+          
+          <!-- Video Duration -->
+          <div class="video-duration">8:45</div>
+          
+          <!-- Video Controls -->
+          <div class="video-controls">
+            <button class="control-btn play-pause-btn">
+              <i class="fas fa-play"></i>
+            </button>
+            <div class="time-display">
+              <span class="current-time">0:00</span> / <span class="duration">8:45</span>
+            </div>
+            <button class="control-btn fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
         </div>
         <div class="video-card-content">
           <h4>Interview on Business Growth</h4>
-          <p>CEO discusses building a trusted edible oil brand and market leadership.</p>
+          <p>CEO discusses building a trusted edible oil brand and market leadership in an exclusive interview with Business Day Nigeria.</p>
         </div>
       </div>
+      
+      <!-- Video 2 - Replace with your video file -->
       <div class="video-card">
-        <div class="video-thumb">
-          <i class="fas fa-play-circle"></i>
+        <div class="video-player-container" data-video="images/videos/togas.mp4" data-thumb="images/video-thumb2.jpg">
+          <video class="video-player" preload="metadata" playsinline>
+            <source src="images/videos/togas.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- <img class="video-thumb" src="images/video-thumb2.jpg" alt="Market Expansion Strategy"> -->
+          <div class="play-btn">
+            <i class="fas fa-play"></i>
+          </div>
+          <div class="video-duration">12:20</div>
+          <div class="video-controls">
+            <button class="control-btn play-pause-btn">
+              <i class="fas fa-play"></i>
+            </button>
+            <div class="time-display">
+              <span class="current-time">0:00</span> / <span class="duration">12:20</span>
+            </div>
+            <button class="control-btn fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
         </div>
         <div class="video-card-content">
           <h4>Market Expansion Strategy</h4>
-          <p>Insights into nationwide distribution and regional growth opportunities.</p>
+          <p>Insights into nationwide distribution and regional growth opportunities at the Nigeria Food Industry Conference.</p>
         </div>
       </div>
+      
+      <!-- Video 3 - Replace with your video file -->
       <div class="video-card">
-        <div class="video-thumb">
-          <i class="fas fa-play-circle"></i>
+        <div class="video-player-container" data-video="images/videos/togas2.mp4" data-thumb="images/video-thumb3.jpg">
+          <video class="video-player" preload="metadata" playsinline>
+            <source src="images/videos/togas2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <!-- <img class="video-thumb" src="images/video-thumb3.jpg" alt="Quality & Sustainability"> -->
+          <div class="play-btn">
+            <i class="fas fa-play"></i>
+          </div>
+          <div class="video-duration">15:35</div>
+          <div class="video-controls">
+            <button class="control-btn play-pause-btn">
+              <i class="fas fa-play"></i>
+            </button>
+            <div class="time-display">
+              <span class="current-time">0:00</span> / <span class="duration">15:35</span>
+            </div>
+            <button class="control-btn fullscreen-btn">
+              <i class="fas fa-expand"></i>
+            </button>
+          </div>
         </div>
         <div class="video-card-content">
           <h4>Quality & Sustainability</h4>
-          <p>How Togas ensures premium standards and environmental responsibility.</p>
+          <p>How Togas ensures premium standards and environmental responsibility in our production processes.</p>
         </div>
       </div>
     </div>
@@ -785,9 +974,9 @@ footer {
     
     <div class="footer-links">
       <h4>Contact Info</h4>
-      <a href="#"><i class="fas fa-map-marker-alt"></i> Industrial Estate, Lagos</a>
-      <a href="tel:+2348012345678"><i class="fas fa-phone"></i> +234 801 234 5678</a>
-      <a href="mailto:info@togasoil.com"><i class="fas fa-envelope"></i> info@togasoil.com</a>
+      <a href="#"><i class="fas fa-map-marker-alt"></i> 30a Iju Road, Agege, Lagos, Nigeria</a>
+      <a href="tel:+234 7065533880"><i class="fas fa-phone"></i> +234 7065533880</a>
+      <a href="mailto:TogasVentures@gmail.com"><i class="fas fa-envelope"></i> TogasVentures@gmail.com</a>
     </div>
   </div>
   
@@ -797,18 +986,15 @@ footer {
 </footer>
 
 <script>
-  // Mobile menu toggle - FIXED VERSION
   document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     
-    // Check if elements exist
     if (menuToggle && navLinks) {
-      // Toggle mobile menu
       menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
+        e.stopPropagation();
         navLinks.classList.toggle('active');
-        // Change icon based on menu state
         if (navLinks.classList.contains('active')) {
           menuToggle.innerHTML = '<i class="fas fa-times"></i>';
           menuToggle.setAttribute('aria-expanded', 'true');
@@ -818,7 +1004,6 @@ footer {
         }
       });
       
-      // Close mobile menu when clicking on a link
       document.querySelectorAll('#navLinks a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
@@ -827,7 +1012,6 @@ footer {
         });
       });
       
-      // Close menu when clicking outside
       document.addEventListener('click', function(e) {
         if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
           if (navLinks.classList.contains('active')) {
@@ -838,7 +1022,6 @@ footer {
         }
       });
       
-      // Close menu on escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
@@ -846,8 +1029,6 @@ footer {
           menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
-    } else {
-      console.error('Menu elements not found. Check your HTML IDs.');
     }
     
     // Newsletter form submission
@@ -863,9 +1044,172 @@ footer {
       });
     }
     
-    // Optional: Close menu on window resize (if resizing to desktop)
+    // Video Player Functionality
+    const videoContainers = document.querySelectorAll('.video-player-container');
+    let currentlyPlayingVideo = null;
+    
+    videoContainers.forEach(container => {
+      const video = container.querySelector('.video-player');
+      const playBtn = container.querySelector('.play-btn');
+      const playPauseBtn = container.querySelector('.play-pause-btn');
+      const fullscreenBtn = container.querySelector('.fullscreen-btn');
+      const currentTimeEl = container.querySelector('.current-time');
+      const durationEl = container.querySelector('.duration');
+      const videoDuration = container.querySelector('.video-duration');
+      
+      // Format time in MM:SS
+      function formatTime(seconds) {
+        const mins = Math.floor(seconds / 60);
+        const secs = Math.floor(seconds % 60);
+        return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      }
+      
+      // Set video duration when metadata is loaded
+      video.addEventListener('loadedmetadata', function() {
+        if (durationEl) {
+          durationEl.textContent = formatTime(video.duration);
+        }
+        if (videoDuration) {
+          videoDuration.textContent = formatTime(video.duration);
+        }
+      });
+      
+      // Update current time during playback
+      video.addEventListener('timeupdate', function() {
+        if (currentTimeEl) {
+          currentTimeEl.textContent = formatTime(video.currentTime);
+        }
+      });
+      
+      // Play video when clicking play button or thumbnail
+      playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        playVideo(container, video);
+      });
+      
+      // Also play when clicking on the container (but not on controls)
+      container.addEventListener('click', function(e) {
+        if (!e.target.closest('.video-controls') && !e.target.closest('.play-btn')) {
+          playVideo(container, video);
+        }
+      });
+      
+      // Play/Pause button in controls
+      if (playPauseBtn) {
+        playPauseBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (video.paused) {
+            video.play();
+            playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+          } else {
+            video.pause();
+            playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+          }
+        });
+      }
+      
+      // Update play/pause button when video state changes
+      video.addEventListener('play', function() {
+        if (playPauseBtn) {
+          playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+      });
+      
+      video.addEventListener('pause', function() {
+        if (playPauseBtn) {
+          playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      });
+      
+      // Fullscreen functionality
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (!document.fullscreenElement) {
+            if (container.requestFullscreen) {
+              container.requestFullscreen();
+            } else if (container.webkitRequestFullscreen) {
+              container.webkitRequestFullscreen();
+            } else if (container.mozRequestFullScreen) {
+              container.mozRequestFullScreen();
+            } else if (container.msRequestFullscreen) {
+              container.msRequestFullscreen();
+            }
+          } else {
+            if (document.exitFullscreen) {
+              document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+              document.webkitExitFullscreen();
+            } else if (document.mozCancelFullScreen) {
+              document.mozCancelFullScreen();
+            } else if (document.msExitFullscreen) {
+              document.msExitFullscreen();
+            }
+          }
+        });
+      }
+      
+      // Exit fullscreen when video ends
+      video.addEventListener('ended', function() {
+        container.classList.remove('active');
+        video.currentTime = 0;
+        if (playPauseBtn) {
+          playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      });
+      
+      // Exit fullscreen when pressing Escape
+      document.addEventListener('fullscreenchange', function() {
+        if (!document.fullscreenElement) {
+          // Video controls might need adjustment here if needed
+        }
+      });
+    });
+    
+    function playVideo(container, video) {
+      // Pause any currently playing video
+      if (currentlyPlayingVideo && currentlyPlayingVideo !== video) {
+        currentlyPlayingVideo.pause();
+        currentlyPlayingVideo.parentElement.classList.remove('active');
+        const otherPlayBtn = currentlyPlayingVideo.parentElement.querySelector('.play-pause-btn');
+        if (otherPlayBtn) {
+          otherPlayBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+      }
+      
+      // Play the clicked video
+      if (video.paused) {
+        video.play();
+        container.classList.add('active');
+        currentlyPlayingVideo = video;
+      } else {
+        video.pause();
+        container.classList.remove('active');
+        currentlyPlayingVideo = null;
+      }
+    }
+    
+    // Pause all videos when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.video-player-container')) {
+        videoContainers.forEach(container => {
+          const video = container.querySelector('.video-player');
+          if (video && !video.paused) {
+            video.pause();
+            container.classList.remove('active');
+            const playPauseBtn = container.querySelector('.play-pause-btn');
+            if (playPauseBtn) {
+              playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+            }
+          }
+        });
+        currentlyPlayingVideo = null;
+      }
+    });
+    
+    // Optional: Close menu on window resize
     window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+      if (window.innerWidth > 768 && navLinks && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
         if (menuToggle) {
           menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
