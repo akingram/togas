@@ -246,7 +246,7 @@ nav a.active::after {
   box-shadow: var(--shadow-hover);
 }
 
-/* COMPARISON SECTION */
+/* COMPARISON SECTION - UPDATED FOR MOBILE */
 .comparison {
   background: var(--green-light);
   padding: 100px 20px;
@@ -261,16 +261,19 @@ nav a.active::after {
   color: var(--text-dark);
 }
 
+/* Desktop table view (hidden on mobile) */
 .comparison-table {
   background: var(--white);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  display: block; /* Changed from none to block */
 }
 
-table {
+.desktop-table {
   width: 100%;
   border-collapse: collapse;
+  display: table;
 }
 
 thead {
@@ -292,6 +295,83 @@ th {
 
 tbody tr:hover {
   background: rgba(95, 127, 99, 0.05);
+}
+
+/* Mobile comparison cards (hidden on desktop) */
+.comparison-cards {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.comparison-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--green);
+}
+
+.feature-title {
+  font-weight: 700;
+  color: var(--green-dark);
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--green-light);
+}
+
+.feature-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.feature-row:last-child {
+  border-bottom: none;
+}
+
+.feature-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  flex: 1;
+}
+
+.feature-values {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feature-value {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.product-label {
+  display: inline-block;
+  width: 100px;
+  font-weight: 700;
+  color: var(--green-dark);
+  margin-right: 10px;
+}
+
+.product-text {
+  color: var(--text-medium);
+}
+
+/* Product-specific highlighting */
+.togas-value {
+  color: var(--green);
+  font-weight: 600;
+}
+
+.afririch-value {
+  color: #d4a017;
+  font-weight: 600;
 }
 
 /* TESTIMONIALS */
@@ -497,6 +577,23 @@ footer {
 }
 
 /* RESPONSIVE */
+@media (max-width: 992px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .comparison h2,
+  .testimonials h2,
+  .final-cta h2 {
+    font-size: 36px;
+  }
+  
+  .product-details h2 {
+    font-size: 28px;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: block;
@@ -546,23 +643,23 @@ footer {
     font-size: 36px;
   }
 
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .container {
     padding: 60px 20px;
   }
-
-  .comparison h2,
-  .testimonials h2,
-  .final-cta h2 {
-    font-size: 36px;
+  
+  /* Show mobile comparison cards on mobile */
+  .desktop-table {
+    display: none;
   }
-
-  .product-details h2 {
-    font-size: 28px;
+  
+  .comparison-cards {
+    display: grid;
+  }
+  
+  .comparison-table {
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
   }
 }
 
@@ -597,6 +694,41 @@ footer {
   .final-cta .btn {
     width: 100%;
     padding: 16px 20px;
+  }
+  
+  .comparison-card {
+    padding: 20px;
+  }
+  
+  .feature-row {
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 0;
+  }
+  
+  .feature-values {
+    flex-direction: column;
+  }
+  
+  .product-label {
+    width: 80px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 400px) {
+  .products-hero h1 {
+    font-size: 28px;
+  }
+  
+  .comparison h2,
+  .testimonials h2,
+  .final-cta h2 {
+    font-size: 30px;
+  }
+  
+  .feature-values {
+    flex-direction: column;
   }
 }
 </style>
@@ -641,7 +773,6 @@ footer {
       </div>
       <div class="product-details">
         <h2>Togas Premium Edible Oil</h2>
-        <div class="price">₦12,500</div>
         <p>Our flagship product, Togas Premium Edible Oil, is refined to perfection for superior cooking performance. Ideal for high-heat cooking, frying, and salad dressings.</p>
         
         <ul class="features-list">
@@ -664,7 +795,6 @@ footer {
       </div>
       <div class="product-details">
         <h2>AfriRich Cooking Oil</h2>
-        <div class="price">₦8,500</div>
         <p>Affordable and nutritious, AfriRich Cooking Oil is perfect for everyday family use. Provides essential fatty acids for healthy living without compromising on quality.</p>
         
         <ul class="features-list">
@@ -682,12 +812,14 @@ footer {
   </div>
 </section>
 
-<!-- COMPARISON TABLE -->
+<!-- COMPARISON SECTION - IMPROVED FOR MOBILE -->
 <section class="comparison">
   <div class="container">
     <h2>Product Comparison</h2>
+    
+    <!-- Desktop Table View -->
     <div class="comparison-table">
-      <table>
+      <table class="desktop-table">
         <thead>
           <tr>
             <th>Features</th>
@@ -698,36 +830,147 @@ footer {
         <tbody>
           <tr>
             <td><strong>Packaging Size</strong></td>
-            <td>5 Liters</td>
-            <td>3 Liters</td>
+            <td class="togas-value">5 Liters</td>
+            <td class="afririch-value">3 Liters</td>
           </tr>
           <tr>
             <td><strong>Best For</strong></td>
-            <td>Commercial kitchens, large families</td>
-            <td>Everyday family cooking</td>
+            <td class="togas-value">Commercial kitchens, large families</td>
+            <td class="afririch-value">Everyday family cooking</td>
           </tr>
           <tr>
             <td><strong>Smoke Point</strong></td>
-            <td>Very High (230°C)</td>
-            <td>High (210°C)</td>
+            <td class="togas-value">Very High (230°C)</td>
+            <td class="afririch-value">High (210°C)</td>
           </tr>
           <tr>
             <td><strong>Nutritional Value</strong></td>
-            <td>Rich in Vitamin E & Omega-6</td>
-            <td>Balanced essential fatty acids</td>
+            <td class="togas-value">Rich in Vitamin E & Omega-6</td>
+            <td class="afririch-value">Balanced essential fatty acids</td>
           </tr>
           <tr>
             <td><strong>Price Point</strong></td>
-            <td>Premium</td>
-            <td>Economical</td>
+            <td class="togas-value">Premium</td>
+            <td class="afririch-value">Economical</td>
           </tr>
           <tr>
             <td><strong>Available Packaging</strong></td>
-            <td>5L, 10L, 20L</td>
-            <td>1L, 3L, 5L</td>
+            <td class="togas-value">5L, 10L, 20L</td>
+            <td class="afririch-value">1L, 3L, 5L</td>
           </tr>
         </tbody>
       </table>
+      
+      <!-- Mobile Comparison Cards -->
+      <div class="comparison-cards">
+        <!-- Card 1: Packaging -->
+        <div class="comparison-card">
+          <div class="feature-title">Packaging Size</div>
+          <div class="feature-row">
+            <div class="feature-label">Togas Premium Oil</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">5 Liters</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">3 Liters</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 2: Best For -->
+        <div class="comparison-card">
+          <div class="feature-title">Best For</div>
+          <div class="feature-row">
+            <div class="feature-label">Target Users</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">Commercial kitchens, large families</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">Everyday family cooking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 3: Smoke Point -->
+        <div class="comparison-card">
+          <div class="feature-title">Smoke Point</div>
+          <div class="feature-row">
+            <div class="feature-label">Cooking Temperature</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">Very High (230°C)</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">High (210°C)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 4: Nutritional Value -->
+        <div class="comparison-card">
+          <div class="feature-title">Nutritional Value</div>
+          <div class="feature-row">
+            <div class="feature-label">Health Benefits</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">Rich in Vitamin E & Omega-6</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">Balanced essential fatty acids</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 5: Price Point -->
+        <div class="comparison-card">
+          <div class="feature-title">Price Point</div>
+          <div class="feature-row">
+            <div class="feature-label">Affordability</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">Premium</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">Economical</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Card 6: Available Packaging -->
+        <div class="comparison-card">
+          <div class="feature-title">Available Packaging</div>
+          <div class="feature-row">
+            <div class="feature-label">Size Options</div>
+            <div class="feature-values">
+              <div class="feature-value">
+                <span class="product-label">Togas:</span>
+                <span class="product-text togas-value">5L, 10L, 20L</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">AfriRich:</span>
+                <span class="product-text afririch-value">1L, 3L, 5L</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
