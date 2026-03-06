@@ -19,6 +19,8 @@
   --white: #ffffff;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --gold: #d4a017;
+  --gold-light: #f8f0d5;
 }
 
 * {
@@ -165,6 +167,7 @@ nav a.active::after {
   box-shadow: var(--shadow-hover);
 }
 
+/* IMAGE CAROUSEL FOR PALM OIL */
 .product-image {
   width: 100%;
   height: 300px;
@@ -172,7 +175,90 @@ nav a.active::after {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.palm-oil-carousel {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.carousel-slide {
+  width: 100%;
+  height: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
   padding: 40px;
+}
+
+.carousel-slide.active {
+  display: flex;
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 5;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dot.active {
+  background: var(--green);
+}
+
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--green);
+  font-size: 18px;
+  transition: all 0.3s;
+  z-index: 5;
+}
+
+.carousel-nav:hover {
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.carousel-prev {
+  left: 20px;
+}
+
+.carousel-next {
+  right: 20px;
 }
 
 .product-image img {
@@ -193,11 +279,19 @@ nav a.active::after {
   font-weight: 700;
 }
 
+.palm-oil-title {
+  color: var(--gold) !important;
+}
+
 .price {
   font-size: 28px;
   font-weight: 700;
   color: var(--green-dark);
   margin: 20px 0;
+}
+
+.palm-oil-price {
+  color: var(--gold) !important;
 }
 
 .product-details p {
@@ -225,6 +319,10 @@ nav a.active::after {
   margin-top: 4px;
 }
 
+.palm-oil-features li i {
+  color: var(--gold) !important;
+}
+
 .cta-btn {
   background: var(--green);
   color: var(--white);
@@ -244,6 +342,14 @@ nav a.active::after {
   background: var(--green-dark);
   transform: translateY(-3px);
   box-shadow: var(--shadow-hover);
+}
+
+.palm-oil-btn {
+  background: var(--gold) !important;
+}
+
+.palm-oil-btn:hover {
+  background: #b38a14 !important;
 }
 
 /* COMPARISON SECTION - UPDATED FOR MOBILE */
@@ -371,6 +477,11 @@ tbody tr:hover {
 
 .afririch-value {
   color: #d4a017;
+  font-weight: 600;
+}
+
+.palm-oil-value {
+  color: #c17d0e;
   font-weight: 600;
 }
 
@@ -674,6 +785,10 @@ footer {
 
   .product-image {
     height: 250px;
+    padding: 0;
+  }
+  
+  .carousel-slide {
     padding: 30px;
   }
 
@@ -713,6 +828,20 @@ footer {
   .product-label {
     width: 80px;
   }
+  
+  .carousel-nav {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .carousel-prev {
+    left: 10px;
+  }
+  
+  .carousel-next {
+    right: 10px;
+  }
 }
 
 /* Extra small devices */
@@ -729,6 +858,10 @@ footer {
   
   .feature-values {
     flex-direction: column;
+  }
+  
+  .product-details h2 {
+    font-size: 24px;
   }
 }
 </style>
@@ -764,9 +897,10 @@ footer {
   <p>Discover our range of high-quality edible oils designed for Nigerian homes and businesses. Each product is crafted with care to deliver exceptional taste and nutrition.</p>
 </section>
 
-<!-- TOGAS OIL PRODUCT -->
+<!-- PRODUCTS GRID -->
 <section class="container">
   <div class="products-grid">
+    <!-- TOGAS PREMIUM OIL -->
     <div class="product-card">
       <div class="product-image">
         <img src="images/image1.jpeg" alt="Togas Premium Edible Oil">
@@ -809,6 +943,65 @@ footer {
         <a href="distributor.html" class="cta-btn">Become a Distributor</a>
       </div>
     </div>
+    
+    <!-- TOGAS PALM OIL PRODUCT -->
+    <div class="product-card">
+      <div class="product-image">
+        <!-- Image Carousel for Palm Oil -->
+        <div class="palm-oil-carousel" id="palmOilCarousel">
+          <!-- Slide 1 -->
+          <div class="carousel-slide active">
+            <img src="images/palm-oil-1.jpg" alt="Togas Palm Oil Bottle">
+          </div>
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <img src="images/palm-oil-2.jpg" alt="Togas Palm Oil Cooking">
+          </div>
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <img src="images/palm-oil-3.jpg" alt="Togas Palm Oil Natural">
+          </div>
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <img src="images/palm-oil-4.jpg" alt="Togas Palm Oil Packaging">
+          </div>
+          
+          <!-- Navigation buttons -->
+          <button class="carousel-nav carousel-prev" id="carouselPrev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button class="carousel-nav carousel-next" id="carouselNext">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+          
+          <!-- Dots indicator -->
+          <div class="carousel-dots" id="carouselDots">
+            <button class="carousel-dot active" data-slide="0"></button>
+            <button class="carousel-dot" data-slide="1"></button>
+            <button class="carousel-dot" data-slide="2"></button>
+            <button class="carousel-dot" data-slide="3"></button>
+          </div>
+        </div>
+      </div>
+      <div class="product-details">
+        <h2 class="palm-oil-title">Togas Premium Palm Oil</h2>
+        <p>Our natural, unrefined palm oil is rich in antioxidants and vitamins. Perfect for traditional Nigerian dishes, soups, stews, and frying. Naturally reddish-orange in color with authentic palm flavor.</p>
+        
+        <div class="price palm-oil-price">₦3,500 - ₦18,000</div>
+        
+        <ul class="features-list palm-oil-features">
+          <li><i class="fas fa-check"></i> 100% Natural, unrefined palm oil</li>
+          <li><i class="fas fa-check"></i> Rich in Vitamin A & E antioxidants</li>
+          <li><i class="fas fa-check"></i> Perfect for soups, stews, and frying</li>
+          <li><i class="fas fa-check"></i> Natural reddish-orange color</li>
+          <li><i class="fas fa-check"></i> No chemicals or preservatives</li>
+          <li><i class="fas fa-check"></i> Available in 1L, 3L, 5L, 10L, 20L</li>
+          <li><i class="fas fa-check"></i> Ideal for traditional Nigerian cuisine</li>
+        </ul>
+        
+        <a href="distributor.html" class="cta-btn palm-oil-btn">Become a Distributor</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -825,6 +1018,7 @@ footer {
             <th>Features</th>
             <th>Togas Premium Oil</th>
             <th>AfriRich Cooking Oil</th>
+            <th>Togas Palm Oil</th>
           </tr>
         </thead>
         <tbody>
@@ -832,31 +1026,37 @@ footer {
             <td><strong>Packaging Size</strong></td>
             <td class="togas-value">5 Liters</td>
             <td class="afririch-value">3 Liters</td>
+            <td class="palm-oil-value">1L, 3L, 5L, 10L, 20L</td>
           </tr>
           <tr>
             <td><strong>Best For</strong></td>
             <td class="togas-value">Commercial kitchens, large families</td>
             <td class="afririch-value">Everyday family cooking</td>
+            <td class="palm-oil-value">Traditional dishes, soups, stews</td>
           </tr>
           <tr>
             <td><strong>Smoke Point</strong></td>
             <td class="togas-value">Very High (230°C)</td>
             <td class="afririch-value">High (210°C)</td>
+            <td class="palm-oil-value">Medium-High (220°C)</td>
           </tr>
           <tr>
             <td><strong>Nutritional Value</strong></td>
             <td class="togas-value">Rich in Vitamin E & Omega-6</td>
             <td class="afririch-value">Balanced essential fatty acids</td>
+            <td class="palm-oil-value">High in Vitamin A & E antioxidants</td>
           </tr>
           <tr>
-            <td><strong>Price Point</strong></td>
+            <td><strong>Color & Texture</strong></td>
+            <td class="togas-value">Clear, light texture</td>
+            <td class="afririch-value">Light yellow, neutral</td>
+            <td class="palm-oil-value">Reddish-orange, natural</td>
+          </tr>
+          <tr>
+            <td><strong>Price Range</strong></td>
             <td class="togas-value">Premium</td>
             <td class="afririch-value">Economical</td>
-          </tr>
-          <tr>
-            <td><strong>Available Packaging</strong></td>
-            <td class="togas-value">5L, 10L, 20L</td>
-            <td class="afririch-value">1L, 3L, 5L</td>
+            <td class="palm-oil-value">Mid-range to Premium</td>
           </tr>
         </tbody>
       </table>
@@ -867,7 +1067,7 @@ footer {
         <div class="comparison-card">
           <div class="feature-title">Packaging Size</div>
           <div class="feature-row">
-            <div class="feature-label">Togas Premium Oil</div>
+            <div class="feature-label">Available Sizes</div>
             <div class="feature-values">
               <div class="feature-value">
                 <span class="product-label">Togas:</span>
@@ -876,6 +1076,10 @@ footer {
               <div class="feature-value">
                 <span class="product-label">AfriRich:</span>
                 <span class="product-text afririch-value">3 Liters</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">Palm Oil:</span>
+                <span class="product-text palm-oil-value">1L, 3L, 5L, 10L, 20L</span>
               </div>
             </div>
           </div>
@@ -895,6 +1099,10 @@ footer {
                 <span class="product-label">AfriRich:</span>
                 <span class="product-text afririch-value">Everyday family cooking</span>
               </div>
+              <div class="feature-value">
+                <span class="product-label">Palm Oil:</span>
+                <span class="product-text palm-oil-value">Traditional dishes, soups, stews</span>
+              </div>
             </div>
           </div>
         </div>
@@ -912,6 +1120,10 @@ footer {
               <div class="feature-value">
                 <span class="product-label">AfriRich:</span>
                 <span class="product-text afririch-value">High (210°C)</span>
+              </div>
+              <div class="feature-value">
+                <span class="product-label">Palm Oil:</span>
+                <span class="product-text palm-oil-value">Medium-High (220°C)</span>
               </div>
             </div>
           </div>
@@ -931,13 +1143,17 @@ footer {
                 <span class="product-label">AfriRich:</span>
                 <span class="product-text afririch-value">Balanced essential fatty acids</span>
               </div>
+              <div class="feature-value">
+                <span class="product-label">Palm Oil:</span>
+                <span class="product-text palm-oil-value">High in Vitamin A & E antioxidants</span>
+              </div>
             </div>
           </div>
         </div>
         
-        <!-- Card 5: Price Point -->
+        <!-- Card 5: Price Range -->
         <div class="comparison-card">
-          <div class="feature-title">Price Point</div>
+          <div class="feature-title">Price Range</div>
           <div class="feature-row">
             <div class="feature-label">Affordability</div>
             <div class="feature-values">
@@ -949,23 +1165,9 @@ footer {
                 <span class="product-label">AfriRich:</span>
                 <span class="product-text afririch-value">Economical</span>
               </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 6: Available Packaging -->
-        <div class="comparison-card">
-          <div class="feature-title">Available Packaging</div>
-          <div class="feature-row">
-            <div class="feature-label">Size Options</div>
-            <div class="feature-values">
               <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">5L, 10L, 20L</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">1L, 3L, 5L</span>
+                <span class="product-label">Palm Oil:</span>
+                <span class="product-text palm-oil-value">Mid-range to Premium</span>
               </div>
             </div>
           </div>
@@ -1012,15 +1214,15 @@ footer {
       
       <div class="testimonial-card">
         <div class="testimonial-text">
-          "As a distributor, both Togas and AfriRich products sell quickly. The consistent quality and affordable pricing make them customer favorites."
+          "Togas Palm Oil brings authentic taste to my traditional recipes. The natural color and flavor make my soups and stews come alive!"
         </div>
         <div class="testimonial-author">
           <div class="author-avatar">
             <i class="fas fa-user"></i>
           </div>
           <div class="author-info">
-            <h4>Mr. Ibrahim</h4>
-            <p>Distributor, Kano</p>
+            <h4>Mama Ngozi</h4>
+            <p>Caterer, Port Harcourt</p>
           </div>
         </div>
       </div>
@@ -1128,6 +1330,93 @@ footer {
         }
       }
     });
+    
+    // Palm Oil Carousel Functionality
+    const palmOilCarousel = document.getElementById('palmOilCarousel');
+    if (palmOilCarousel) {
+      const slides = palmOilCarousel.querySelectorAll('.carousel-slide');
+      const dots = palmOilCarousel.querySelectorAll('.carousel-dot');
+      const prevBtn = document.getElementById('carouselPrev');
+      const nextBtn = document.getElementById('carouselNext');
+      
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      
+      // Function to show a specific slide
+      function showSlide(index) {
+        // Ensure index is within bounds
+        if (index < 0) index = totalSlides - 1;
+        if (index >= totalSlides) index = 0;
+        
+        // Hide all slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Show current slide and activate corresponding dot
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        currentSlide = index;
+      }
+      
+      // Next slide function
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+      
+      // Previous slide function
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+      
+      // Auto-rotate slides every 5 seconds
+      let slideInterval = setInterval(nextSlide, 5000);
+      
+      // Reset interval when user interacts
+      function resetInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 5000);
+      }
+      
+      // Event listeners for navigation buttons
+      if (nextBtn) nextBtn.addEventListener('click', () => {
+        nextSlide();
+        resetInterval();
+      });
+      
+      if (prevBtn) prevBtn.addEventListener('click', () => {
+        prevSlide();
+        resetInterval();
+      });
+      
+      // Event listeners for dots
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          showSlide(index);
+          resetInterval();
+        });
+      });
+      
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+          prevSlide();
+          resetInterval();
+        } else if (e.key === 'ArrowRight') {
+          nextSlide();
+          resetInterval();
+        }
+      });
+      
+      // Pause on hover
+      palmOilCarousel.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+      
+      palmOilCarousel.addEventListener('mouseleave', () => {
+        resetInterval();
+      });
+    }
   });
 </script>
 
