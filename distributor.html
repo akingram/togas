@@ -269,8 +269,8 @@ nav a.active::after{
 
 .brand-box{
   display:grid;
-  grid-template-columns:repeat(auto-fit, minmax(400px, 1fr));
-  gap:40px;
+  grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+  gap:30px;
 }
 
 .brand-card{
@@ -278,7 +278,7 @@ nav a.active::after{
   padding:30px;
   display:flex;
   align-items:center;
-  gap:30px;
+  gap:25px;
   border-radius:12px;
   box-shadow:var(--shadow);
   transition:transform 0.3s ease;
@@ -290,25 +290,26 @@ nav a.active::after{
 }
 
 .brand-card img{
-  width:140px;
-  height:140px;
+  width:130px;
+  height:130px;
   object-fit:cover;
   border-radius:8px;
+  background: #f0f0f0;
 }
 
 .brand-info h4{
   font-family: 'Playfair Display', serif;
-  font-size:24px;
-  margin-bottom:12px;
+  font-size:22px;
+  margin-bottom:10px;
   font-weight:700;
   color:var(--green);
 }
 
 .brand-info p{
-  font-size:16px;
+  font-size:15px;
   color:var(--text-medium);
   font-weight:500;
-  line-height:1.7;
+  line-height:1.6;
 }
 
 /* ================= FORM ================= */
@@ -503,7 +504,7 @@ footer {
     height: auto;
     max-height: calc(100vh - 80px);
     overflow-y: auto;
-    display: flex; /* Ensures menu displays properly when active */
+    display: flex;
   }
 
   nav.active {
@@ -652,6 +653,7 @@ footer {
   <div class="brands-container">
     <h3>Our Trusted Brands</h3>
     <div class="brand-box">
+      <!-- Togas Premium Oil (Vegetable) -->
       <div class="brand-card">
         <img src="images/image1.jpeg" alt="Togas Vegetable Oil">
         <div class="brand-info">
@@ -659,6 +661,15 @@ footer {
           <p>Premium refined vegetable oil for cooking, frying and salad dressing. Trusted by top restaurants and homes.</p>
         </div>
       </div>
+      <!-- NEW: Togas Palm Oil -->
+      <div class="brand-card">
+        <img src="images/redoil.jpeg" alt="Togas Palm Oil">
+        <div class="brand-info">
+          <h4>Togas Palm Oil</h4>
+          <p>Rich, flavorful palm oil sourced from local plantations. Perfect for traditional dishes and everyday cooking.</p>
+        </div>
+      </div>
+      <!-- AfriRich Cooking Oil -->
       <div class="brand-card">
         <img src="images/image2.jpeg" alt="AfriRich Cooking Oil">
         <div class="brand-info">
@@ -749,18 +760,15 @@ footer {
 </footer>
 
 <script>
-  // Mobile menu toggle - FIXED VERSION
+  // Mobile menu toggle
   document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.getElementById('menuToggle');
     const navLinks = document.getElementById('navLinks');
     
-    // Check if elements exist
     if (menuToggle && navLinks) {
-      // Toggle mobile menu
       menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
+        e.stopPropagation();
         navLinks.classList.toggle('active');
-        // Change icon based on menu state
         if (navLinks.classList.contains('active')) {
           menuToggle.innerHTML = '<i class="fas fa-times"></i>';
           menuToggle.setAttribute('aria-expanded', 'true');
@@ -770,7 +778,6 @@ footer {
         }
       });
       
-      // Close mobile menu when clicking on a link
       document.querySelectorAll('#navLinks a').forEach(link => {
         link.addEventListener('click', () => {
           navLinks.classList.remove('active');
@@ -779,7 +786,6 @@ footer {
         });
       });
       
-      // Close menu when clicking outside
       document.addEventListener('click', function(e) {
         if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
           if (navLinks.classList.contains('active')) {
@@ -790,7 +796,6 @@ footer {
         }
       });
       
-      // Close menu on escape key
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && navLinks.classList.contains('active')) {
           navLinks.classList.remove('active');
@@ -798,8 +803,6 @@ footer {
           menuToggle.setAttribute('aria-expanded', 'false');
         }
       });
-    } else {
-      console.error('Menu elements not found. Check your HTML IDs.');
     }
     
     // Form submission
@@ -808,7 +811,6 @@ footer {
       form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
         const formData = {
           name: document.getElementById('fullName').value,
           phone: document.getElementById('phoneNumber').value,
@@ -818,17 +820,12 @@ footer {
           experience: document.getElementById('experience').value
         };
         
-        // In a real application, you would send this data to a server
-        // For now, we'll just show an alert
         alert('Thank you for your application! Our team will contact you within 24 hours.');
         form.reset();
-        
-        // Scroll to top
         window.scrollTo({top: 0, behavior: 'smooth'});
       });
     }
     
-    // Optional: Close menu on window resize (if resizing to desktop)
     window.addEventListener('resize', () => {
       if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
         navLinks.classList.remove('active');
