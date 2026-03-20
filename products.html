@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -910,7 +911,7 @@ footer {
         <p>Our flagship refined soybean oil delivers superior performance for all your cooking needs. Its light texture and neutral flavour make it the perfect choice for frying, baking, and salad dressings.</p>
         
         <ul class="features-list">
-          <li><i class="fas fa-check"></i> Available sizes: 25L, 10L, 5L, 3L, 2L, 1L, 75cl, 25cl</li>
+          <li><i class="fas fa-check"></i> Available sizes: 25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</li>
           <li><i class="fas fa-check"></i> 100% pure refined soybean oil</li>
           <li><i class="fas fa-check"></i> Cholesterol-free & rich in Vitamin E</li>
           <li><i class="fas fa-check"></i> High smoke point (230°C) – ideal for deep frying</li>
@@ -965,22 +966,6 @@ footer {
           <div class="carousel-slide">
             <img src="images/redoil.jpeg" alt="Togas Palm Oil Packaging">
           </div>
-          
-          <!-- Navigation buttons (commented out to preserve design but can be enabled) -->
-          <!-- <button class="carousel-nav carousel-prev" id="carouselPrev">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <button class="carousel-nav carousel-next" id="carouselNext">
-            <i class="fas fa-chevron-right"></i>
-          </button> -->
-          
-          <!-- Dots indicator (commented out to preserve design but can be enabled) -->
-          <!-- <div class="carousel-dots" id="carouselDots">
-            <button class="carousel-dot active" data-slide="0"></button>
-            <button class="carousel-dot" data-slide="1"></button>
-            <button class="carousel-dot" data-slide="2"></button>
-            <button class="carousel-dot" data-slide="3"></button>
-          </div> -->
         </div>
       </div>
       <div class="product-details">
@@ -1003,12 +988,12 @@ footer {
   </div>
 </section>
 
-<!-- COMPARISON SECTION - IMPROVED FOR MOBILE WITH UPDATED SIZES -->
+<!-- COMPARISON SECTION - IMPROVED FOR MOBILE WITH UPDATED SIZES (cL) -->
 <section class="comparison">
   <div class="container">
     <h2>Product Comparison</h2>
     
-    <!-- Desktop Table View (updated sizes) -->
+    <!-- Desktop Table View (updated sizes with cL) -->
     <div class="comparison-table">
       <table class="desktop-table">
         <thead>
@@ -1022,7 +1007,7 @@ footer {
         <tbody>
           <tr>
             <td><strong>Packaging Sizes</strong></td>
-            <td class="togas-value">25L,10L,5L,3L,2L,1L,75cL,25cL</td>
+            <td class="togas-value">25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</td>
             <td class="afririch-value">25L, 10L</td>
             <td class="palm-oil-value">5L, 3L</td>
           </tr>
@@ -1059,7 +1044,7 @@ footer {
         </tbody>
       </table>
       
-      <!-- Mobile Comparison Cards (updated sizes) -->
+      <!-- Mobile Comparison Cards (updated sizes with cL) -->
       <div class="comparison-cards">
         <!-- Card 1: Packaging -->
         <div class="comparison-card">
@@ -1069,7 +1054,7 @@ footer {
             <div class="feature-values">
               <div class="feature-value">
                 <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">25L,10L,5L,3L,2L,1L,75cL,25cL</span>
+                <span class="product-text togas-value">25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</span>
               </div>
               <div class="feature-value">
                 <span class="product-label">AfriRich:</span>
@@ -1328,25 +1313,9 @@ footer {
         }
       }
     });
-    
-    // Palm Oil Carousel Functionality (optional, kept for compatibility)
-    const palmOilCarousel = document.getElementById('palmOilCarousel');
-    if (palmOilCarousel) {
-      const slides = palmOilCarousel.querySelectorAll('.carousel-slide');
-      // Minimal carousel logic (no buttons used to keep original design)
-      // If you wish to enable auto-rotate, uncomment the interval below.
-      /*
-      let currentSlide = 0;
-      function nextSlide() {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }
-      setInterval(nextSlide, 5000);
-      */
-    }
   });
 </script>
 
 </body>
 </html>
+```
