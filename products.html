@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* RESET & VARIABLES */
 :root {
   --green: #5f7f63;
   --green-light: #eef4ef;
@@ -18,856 +17,191 @@
   --text-medium: #333333;
   --text-light: #555555;
   --white: #ffffff;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+  --shadow: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-hover: 0 12px 24px rgba(0,0,0,0.12);
   --gold: #d4a017;
+  --gold-dark: #b38a14;
   --gold-light: #f8f0d5;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background: #f6f8f6;
-  color: var(--text-dark);
-  line-height: 1.6;
-  font-weight: 500;
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#f6f8f6;color:var(--text-dark);line-height:1.6;font-weight:500}
+img{max-width:100%;display:block;height:auto}
+a{text-decoration:none;color:inherit}
 
 /* NAVBAR */
-header {
-  border-bottom: 1px solid #e5e5e5;
-  position: sticky;
-  top: 0;
-  background-color: var(--white);
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
+header{border-bottom:1px solid #e5e5e5;position:sticky;top:0;background:var(--white);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.nav{max-width:1200px;margin:auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;height:80px}
+.logo{font-family:'Playfair Display',serif;font-weight:800;font-size:26px;color:var(--green);display:flex;align-items:center;text-decoration:none}
+.logo i{margin-right:10px;font-size:24px}
+.nav-links{display:flex;align-items:center}
+nav a{margin-left:32px;text-decoration:none;color:var(--text-medium);font-size:15px;font-weight:600;transition:color .3s ease;position:relative}
+nav a:hover{color:var(--green)}
+nav a.active{color:var(--green);font-weight:700}
+nav a.active::after{content:'';position:absolute;width:100%;height:2px;background:var(--green);bottom:-8px;left:0}
+.menu-toggle{display:none;background:none;border:none;font-size:24px;color:var(--green);cursor:pointer;z-index:1001}
 
-.nav {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  font-size: 26px;
-  color: var(--green);
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-}
-
-.logo i {
-  margin-right: 10px;
-  font-size: 24px;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-}
-
-nav a {
-  margin-left: 32px;
-  text-decoration: none;
-  color: var(--text-medium);
-  font-size: 15px;
-  font-weight: 600;
-  transition: color 0.3s ease;
-  position: relative;
-}
-
-nav a:hover {
-  color: var(--green);
-}
-
-nav a.active {
-  color: var(--green);
-  font-weight: 700;
-}
-
-nav a.active::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: var(--green);
-  bottom: -8px;
-  left: 0;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: var(--green);
-  cursor: pointer;
-  z-index: 1001;
-}
-
-/* HERO SECTION */
-.products-hero {
-  text-align: center;
-  padding: 100px 20px;
-  background: linear-gradient(135deg, var(--green-light) 0%, #f8faf8 100%);
-}
-
-.products-hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  margin-bottom: 20px;
-  font-weight: 800;
-  color: var(--text-dark);
-}
-
-.products-hero p {
-  font-size: 18px;
-  color: var(--text-medium);
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-weight: 500;
-}
+/* HERO */
+.products-hero{text-align:center;padding:100px 20px;background:linear-gradient(135deg,var(--green-light) 0%,#f8faf8 100%)}
+.products-hero h1{font-family:'Playfair Display',serif;font-size:48px;margin-bottom:20px;font-weight:800;color:var(--text-dark)}
+.products-hero p{font-size:18px;color:var(--text-medium);max-width:700px;margin:0 auto 40px;font-weight:500}
 
 /* CONTAINER */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 80px 20px;
-}
+.container{max-width:1200px;margin:auto;padding:80px 20px}
 
-/* PRODUCTS GRID */
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 60px;
-  margin-top: 40px;
-}
+/* EXISTING PRODUCTS GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(500px,1fr));gap:60px;margin-top:40px}
+.product-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease}
+.product-card:hover{transform:translateY(-10px);box-shadow:var(--shadow-hover)}
+.product-image{width:100%;height:300px;background:var(--green-light);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.palm-oil-carousel{width:100%;height:100%;position:relative}
+.carousel-slide{width:100%;height:100%;display:none;align-items:center;justify-content:center;padding:40px}
+.carousel-slide.active{display:flex}
+.carousel-slide img,.product-image img{max-width:100%;max-height:100%;object-fit:contain}
+.carousel-dots{position:absolute;bottom:20px;left:0;right:0;display:flex;justify-content:center;gap:10px;z-index:5}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;transition:background .3s}
+.carousel-dot.active{background:var(--green)}
+.carousel-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--green);font-size:18px;transition:all .3s;z-index:5}
+.carousel-nav:hover{background:var(--white);box-shadow:var(--shadow)}
+.carousel-prev{left:20px}.carousel-next{right:20px}
+.product-details{padding:40px}
+.product-details h2{font-family:'Playfair Display',serif;font-size:32px;margin-bottom:15px;color:var(--green);font-weight:700}
+.palm-oil-title{color:var(--gold)!important}
+.product-details p{color:var(--text-medium);margin-bottom:25px;font-weight:500;line-height:1.7}
+.features-list{list-style:none;margin:25px 0}
+.features-list li{margin-bottom:12px;display:flex;align-items:flex-start;font-weight:500}
+.features-list li i{color:var(--green);margin-right:10px;margin-top:4px}
+.palm-oil-features li i{color:var(--gold)!important}
+.cta-btn{background:var(--green);color:var(--white);padding:16px 40px;border:none;font-size:16px;font-weight:700;cursor:pointer;border-radius:8px;transition:all .3s ease;display:inline-block;text-decoration:none;margin-top:10px}
+.cta-btn:hover{background:var(--green-dark);transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.palm-oil-btn{background:var(--gold)!important}
+.palm-oil-btn:hover{background:var(--gold-dark)!important}
 
-.product-card {
-  background: var(--white);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
-}
+/* SIZE SPOTLIGHT SECTION */
+.size-section{padding:80px 20px}
+.size-section.soybean-section{background:#f6f8f6}
+.size-section.palm-section{background:var(--gold-light)}
 
-.product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-hover);
-}
+.size-section-header{display:flex;align-items:center;gap:20px;margin-bottom:48px;flex-wrap:wrap}
+.brand-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-icon.green{background:var(--green)}
+.brand-icon.gold{background:var(--gold)}
+.brand-icon i{font-size:24px;color:var(--white)}
+.size-section-header-text h2{font-family:'Playfair Display',serif;font-size:32px;font-weight:800;color:var(--text-dark);margin-bottom:6px}
+.size-section-header-text p{font-size:15px;color:var(--text-medium);font-weight:500;max-width:560px}
 
-/* IMAGE CAROUSEL FOR PALM OIL */
-.product-image {
-  width: 100%;
-  height: 300px;
-  background: var(--green-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
+.size-cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:1200px;margin:0 auto}
+.size-card{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;display:flex;flex-direction:column}
+.size-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-hover)}
+.size-card-topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+.size-card-topbar.green{background:var(--green)}
+.size-card-topbar.gold{background:var(--gold)}
+.size-label{font-family:'Playfair Display',serif;font-size:26px;font-weight:800;color:var(--white);line-height:1}
+.size-brand{font-size:11px;font-weight:700;color:rgba(255,255,255,0.8);text-transform:uppercase;letter-spacing:.1em;text-align:right;line-height:1.4}
+.size-card-image{width:100%;height:280px;background:var(--green-light);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;flex-shrink:0}
+.size-card-image.palm-bg{background:var(--gold-light)}
+.size-card-image img{width:100%;height:100%;object-fit:cover;padding:0}
+.extra-slots{display:flex;gap:8px;padding:10px 16px;flex-wrap:wrap;border-bottom:1px solid #f0f0f0}
+.extra-slot{width:64px;height:64px;border-radius:8px;overflow:hidden;background:var(--green-light);border:2px solid rgba(95,127,99,0.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
+.extra-slot.palm{background:var(--gold-light);border-color:rgba(212,160,23,0.3)}
+.extra-slot img{width:100%;height:100%;object-fit:cover}
+.extra-slot:hover{border-color:var(--green);transform:scale(1.02)}
+.size-card-body{padding:22px 22px 26px;flex:1;display:flex;flex-direction:column}
+.size-card-body h3{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:8px}
+.size-card-body h3.green{color:var(--green)}
+.size-card-body h3.gold{color:var(--gold)}
+.size-card-body p{font-size:13.5px;color:var(--text-medium);line-height:1.75;margin-bottom:16px}
+.size-perks{list-style:none;margin-bottom:20px;flex:1}
+.size-perks li{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:500;color:var(--text-medium);margin-bottom:9px}
+.size-perks li i{margin-top:3px;flex-shrink:0;font-size:13px}
+.size-perks li i.green{color:var(--green)}
+.size-perks li i.gold{color:var(--gold)}
+.size-cta{display:block;text-align:center;padding:12px 20px;border-radius:8px;font-weight:700;font-size:14px;transition:all .3s ease;text-decoration:none;margin-top:auto}
+.size-cta.green{background:var(--green);color:var(--white)}
+.size-cta.green:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
+.size-cta.gold{background:var(--gold);color:var(--white)}
+.size-cta.gold:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:var(--shadow-hover)}
 
-.palm-oil-carousel {
-  width: 100%;
-  height: 100%;
-  position: relative;
-}
+/* PRODUCT GALLERY SECTION - SIMPLE PICTURE ONLY GALLERY */
+.product-gallery-section{background:var(--white);padding:100px 20px}
+.gallery-header{text-align:center;margin-bottom:50px}
+.gallery-header h2{font-family:'Playfair Display',serif;font-size:42px;font-weight:800;color:var(--text-dark);margin-bottom:16px}
+.gallery-header p{font-size:18px;color:var(--text-medium);max-width:700px;margin:0 auto}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:25px;max-width:1200px;margin:0 auto}
+.gallery-img-item{width:100%;height:280px;overflow:hidden;border-radius:12px;background:var(--green-light);box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;cursor:pointer}
+.gallery-img-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+.gallery-img-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gallery-img-item:hover img{transform:scale(1.05)}
+.upload-hint{background:rgba(95,127,99,0.08);border:2px dashed var(--green);border-radius:16px;padding:25px;margin-top:50px;text-align:center;max-width:800px;margin-left:auto;margin-right:auto}
+.upload-hint i{font-size:36px;color:var(--green);margin-bottom:12px;display:block}
+.upload-hint p{color:var(--text-medium);font-size:14px}
+.upload-hint code{background:rgba(0,0,0,0.05);padding:4px 8px;border-radius:6px;font-family:monospace;font-size:12px}
 
-.carousel-slide {
-  width: 100%;
-  height: 100%;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 40px;
-}
-
-.carousel-slide.active {
-  display: flex;
-}
-
-.carousel-slide img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.carousel-dots {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  z-index: 5;
-}
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.carousel-dot.active {
-  background: var(--green);
-}
-
-.carousel-nav {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--green);
-  font-size: 18px;
-  transition: all 0.3s;
-  z-index: 5;
-}
-
-.carousel-nav:hover {
-  background: var(--white);
-  box-shadow: var(--shadow);
-}
-
-.carousel-prev {
-  left: 20px;
-}
-
-.carousel-next {
-  right: 20px;
-}
-
-.product-image img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.product-details {
-  padding: 40px;
-}
-
-.product-details h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 32px;
-  margin-bottom: 15px;
-  color: var(--green);
-  font-weight: 700;
-}
-
-.palm-oil-title {
-  color: var(--gold) !important;
-}
-
-.price {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--green-dark);
-  margin: 20px 0;
-}
-
-.palm-oil-price {
-  color: var(--gold) !important;
-}
-
-.product-details p {
-  color: var(--text-medium);
-  margin-bottom: 25px;
-  font-weight: 500;
-  line-height: 1.7;
-}
-
-.features-list {
-  list-style: none;
-  margin: 25px 0;
-}
-
-.features-list li {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: flex-start;
-  font-weight: 500;
-}
-
-.features-list li i {
-  color: var(--green);
-  margin-right: 10px;
-  margin-top: 4px;
-}
-
-.palm-oil-features li i {
-  color: var(--gold) !important;
-}
-
-.cta-btn {
-  background: var(--green);
-  color: var(--white);
-  padding: 16px 40px;
-  border: none;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  display: inline-block;
-  text-decoration: none;
-  margin-top: 10px;
-}
-
-.cta-btn:hover {
-  background: var(--green-dark);
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-hover);
-}
-
-.palm-oil-btn {
-  background: var(--gold) !important;
-}
-
-.palm-oil-btn:hover {
-  background: #b38a14 !important;
-}
-
-/* COMPARISON SECTION - UPDATED FOR MOBILE */
-.comparison {
-  background: var(--green-light);
-  padding: 100px 20px;
-}
-
-.comparison h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-weight: 800;
-  color: var(--text-dark);
-}
-
-/* Desktop table view (hidden on mobile) */
-.comparison-table {
-  background: var(--white);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  display: block;
-}
-
-.desktop-table {
-  width: 100%;
-  border-collapse: collapse;
-  display: table;
-}
-
-thead {
-  background: var(--green);
-  color: var(--white);
-}
-
-th, td {
-  padding: 20px;
-  text-align: left;
-  border-bottom: 1px solid var(--green-light);
-  font-weight: 500;
-}
-
-th {
-  font-weight: 700;
-  font-size: 18px;
-}
-
-tbody tr:hover {
-  background: rgba(95, 127, 99, 0.05);
-}
-
-/* Mobile comparison cards (hidden on desktop) */
-.comparison-cards {
-  display: none;
-  grid-template-columns: 1fr;
-  gap: 30px;
-}
-
-.comparison-card {
-  background: var(--white);
-  border-radius: 16px;
-  padding: 30px;
-  box-shadow: var(--shadow);
-  border-left: 5px solid var(--green);
-}
-
-.feature-title {
-  font-weight: 700;
-  color: var(--green-dark);
-  font-size: 18px;
-  margin-bottom: 15px;
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--green-light);
-}
-
-.feature-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.feature-row:last-child {
-  border-bottom: none;
-}
-
-.feature-label {
-  font-weight: 600;
-  color: var(--text-dark);
-  flex: 1;
-}
-
-.feature-values {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.feature-value {
-  display: flex;
-  align-items: baseline;
-  font-weight: 500;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.product-label {
-  display: inline-block;
-  width: 85px;
-  font-weight: 700;
-  color: var(--green-dark);
-  margin-right: 5px;
-  flex-shrink: 0;
-}
-
-.product-text {
-  color: var(--text-medium);
-  word-break: break-word;
-}
-
-/* Product-specific highlighting */
-.togas-value {
-  color: var(--green);
-  font-weight: 600;
-}
-
-.afririch-value {
-  color: #d4a017;
-  font-weight: 600;
-}
-
-.palm-oil-value {
-  color: #c17d0e;
-  font-weight: 600;
-}
+/* COMPARISON */
+.comparison{background:var(--green-light);padding:100px 20px}
+.comparison h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:50px;text-align:center;font-weight:800;color:var(--text-dark)}
+.comparison-table{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);display:block}
+.desktop-table{width:100%;border-collapse:collapse;display:table}
+thead{background:var(--green);color:var(--white)}
+th,td{padding:20px;text-align:left;border-bottom:1px solid var(--green-light);font-weight:500}
+th{font-weight:700;font-size:18px}
+tbody tr:hover{background:rgba(95,127,99,0.05)}
+.comparison-cards{display:none;grid-template-columns:1fr;gap:30px}
 
 /* TESTIMONIALS */
-.testimonials {
-  padding: 100px 20px;
-  background: var(--white);
-}
-
-.testimonials h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin-bottom: 50px;
-  text-align: center;
-  font-weight: 800;
-  color: var(--text-dark);
-}
-
-.testimonial-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
-}
-
-.testimonial-card {
-  background: var(--green-light);
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover {
-  transform: translateY(-5px);
-}
-
-.testimonial-text {
-  font-style: italic;
-  margin-bottom: 25px;
-  color: var(--text-medium);
-  font-size: 17px;
-  font-weight: 500;
-  line-height: 1.8;
-}
-
-.testimonial-author {
-  display: flex;
-  align-items: center;
-}
-
-.author-avatar {
-  width: 50px;
-  height: 50px;
-  background: var(--green);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 20px;
-  margin-right: 15px;
-}
-
-.author-info h4 {
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 5px;
-}
-
-.author-info p {
-  color: var(--text-light);
-  font-weight: 500;
-}
+.testimonials{padding:100px 20px;background:var(--white)}
+.testimonials h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:50px;text-align:center;font-weight:800;color:var(--text-dark)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px}
+.testimonial-card{background:var(--green-light);padding:40px;border-radius:16px;box-shadow:var(--shadow);transition:transform .3s ease}
+.testimonial-card:hover{transform:translateY(-5px)}
+.testimonial-text{font-style:italic;margin-bottom:25px;color:var(--text-medium);font-size:17px;font-weight:500;line-height:1.8}
+.testimonial-author{display:flex;align-items:center}
+.author-avatar{width:50px;height:50px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:20px;margin-right:15px}
 
 /* CTA */
-.final-cta {
-  background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
-  color: var(--white);
-  text-align: center;
-  padding: 100px 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.final-cta::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
-.final-cta h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 42px;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
-  font-weight: 800;
-}
-
-.final-cta p {
-  max-width: 700px;
-  margin: 0 auto 40px;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.95);
-  position: relative;
-  z-index: 2;
-  font-weight: 500;
-  line-height: 1.8;
-}
-
-.final-cta .btn {
-  background: var(--white);
-  color: var(--green);
-  font-weight: 700;
-  padding: 18px 40px;
-  font-size: 18px;
-  position: relative;
-  z-index: 2;
-  text-decoration: none;
-  border-radius: 8px;
-  display: inline-block;
-  transition: all 0.3s ease;
-  border: none;
-  cursor: pointer;
-}
-
-.final-cta .btn:hover {
-  background: var(--green-light);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
+.final-cta{background:linear-gradient(135deg,var(--green) 0%,var(--green-dark) 100%);color:var(--white);text-align:center;padding:100px 20px;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.final-cta h2{font-family:'Playfair Display',serif;font-size:42px;margin-bottom:30px;position:relative;z-index:2;font-weight:800}
+.final-cta p{max-width:700px;margin:0 auto 40px;font-size:18px;color:rgba(255,255,255,0.95);position:relative;z-index:2;font-weight:500}
+.final-cta .btn{background:var(--white);color:var(--green);font-weight:700;padding:18px 40px;font-size:18px;position:relative;z-index:2;text-decoration:none;border-radius:8px;display:inline-block;transition:all .3s ease}
+.final-cta .btn:hover{background:var(--green-light);transform:translateY(-3px);box-shadow:0 10px 20px rgba(0,0,0,0.15)}
 
 /* FOOTER */
-footer {
-  background: var(--green-footer);
-  color: rgba(255, 255, 255, 0.95);
-  padding: 60px 20px 30px;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 40px;
-}
-
-.footer-logo {
-  font-family: 'Playfair Display', serif;
-  font-weight: 800;
-  font-size: 26px;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-
-.footer-about p {
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.7;
-  font-weight: 500;
-}
-
-.footer-links h4 {
-  color: var(--white);
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.footer-links a {
-  display: block;
-  color: rgba(255, 255, 255, 0.9);
-  text-decoration: none;
-  margin-bottom: 12px;
-  transition: color 0.3s;
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-}
-
-.footer-links a i {
-  margin-right: 10px;
-  width: 20px;
-}
-
-.footer-links a:hover {
-  color: var(--white);
-  font-weight: 600;
-}
-
-.copyright {
-  text-align: center;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 1200px;
-  margin: auto;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 14px;
-  font-weight: 500;
-}
+footer{background:var(--green-footer);color:rgba(255,255,255,0.95);padding:60px 20px 30px}
+.footer-content{max-width:1200px;margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-bottom:40px}
+.footer-logo{font-family:'Playfair Display',serif;font-weight:800;font-size:26px;color:var(--white);margin-bottom:20px}
+.footer-about p{color:rgba(255,255,255,0.9);line-height:1.7}
+.footer-links h4{color:var(--white);margin-bottom:20px;font-size:18px;font-weight:700}
+.footer-links a{display:flex;align-items:center;color:rgba(255,255,255,0.9);text-decoration:none;margin-bottom:12px;transition:color .3s}
+.footer-links a i{margin-right:10px;width:20px}
+.footer-links a:hover{color:var(--white)}
+.copyright{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,0.1);max-width:1200px;margin:auto;font-size:14px}
 
 /* RESPONSIVE */
-@media (max-width: 992px) {
-  .products-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .comparison h2,
-  .testimonials h2,
-  .final-cta h2 {
-    font-size: 36px;
-  }
-  
-  .product-details h2 {
-    font-size: 28px;
-  }
+@media(max-width:992px){
+  .products-grid{grid-template-columns:1fr;gap:40px}
+  .size-cards-row{grid-template-columns:1fr}
+  .comparison h2,.testimonials h2,.final-cta h2,.gallery-header h2{font-size:36px}
 }
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    background: var(--white);
-    flex-direction: column;
-    align-items: center;
-    padding: 30px 0;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: all 0.3s ease;
-    z-index: 999;
-    height: auto;
-    max-height: calc(100vh - 80px);
-    overflow-y: auto;
-    display: flex;
-  }
-
-  .nav-links.active {
-    transform: translateY(0);
-    opacity: 1;
-  }
-
-  nav a {
-    margin: 15px 0;
-    font-size: 18px;
-    margin-left: 0;
-    font-weight: 600;
-  }
-  
-  nav a.active {
-    font-weight: 700;
-  }
-
-  nav a.active::after {
-    display: none;
-  }
-
-  .products-hero h1 {
-    font-size: 36px;
-  }
-
-  .container {
-    padding: 60px 20px;
-  }
-  
-  /* Show mobile comparison cards on mobile */
-  .desktop-table {
-    display: none;
-  }
-  
-  .comparison-cards {
-    display: grid;
-  }
-  
-  .comparison-table {
-    background: transparent;
-    box-shadow: none;
-    overflow: visible;
-  }
+@media(max-width:768px){
+  .menu-toggle{display:block}
+  .nav-links{position:fixed;top:80px;left:0;width:100%;background:var(--white);flex-direction:column;align-items:center;padding:30px 0;box-shadow:0 10px 20px rgba(0,0,0,0.1);transform:translateY(-100%);opacity:0;transition:all .3s ease;z-index:999;display:flex}
+  .nav-links.active{transform:translateY(0);opacity:1}
+  nav a{margin:15px 0;font-size:18px;margin-left:0}
+  nav a.active::after{display:none}
+  .desktop-table{display:none}
+  .comparison-cards{display:grid}
+  .gallery-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr))}
 }
-
-@media (max-width: 576px) {
-  .products-hero h1 {
-    font-size: 32px;
-  }
-
-  .products-hero {
-    padding: 80px 20px;
-  }
-
-  .product-image {
-    height: 250px;
-    padding: 0;
-  }
-  
-  .carousel-slide {
-    padding: 30px;
-  }
-
-  .product-details {
-    padding: 30px;
-  }
-
-  .price {
-    font-size: 24px;
-  }
-
-  .cta-btn {
-    width: 100%;
-    text-align: center;
-    padding: 16px 20px;
-  }
-
-  .final-cta .btn {
-    width: 100%;
-    padding: 16px 20px;
-  }
-  
-  .comparison-card {
-    padding: 20px;
-  }
-  
-  .feature-row {
-    flex-direction: column;
-    gap: 10px;
-    padding: 12px 0;
-  }
-  
-  .feature-values {
-    flex-direction: column;
-  }
-  
-  .product-label {
-    width: auto;
-    min-width: 85px;
-  }
-  
-  .carousel-nav {
-    width: 35px;
-    height: 35px;
-    font-size: 16px;
-  }
-  
-  .carousel-prev {
-    left: 10px;
-  }
-  
-  .carousel-next {
-    right: 10px;
-  }
-}
-
-@media (max-width: 400px) {
-  .products-hero h1 {
-    font-size: 28px;
-  }
-  
-  .comparison h2,
-  .testimonials h2,
-  .final-cta h2 {
-    font-size: 30px;
-  }
-  
-  .product-details h2 {
-    font-size: 24px;
-  }
+@media(max-width:576px){
+  .products-hero h1{font-size:32px}
+  .product-details{padding:30px}
+  .cta-btn{width:100%;text-align:center}
+  .gallery-header h2{font-size:30px}
+  .gallery-img-item{height:220px}
+  .size-card-image{height:240px}
 }
 </style>
 </head>
-
 <body>
 
 <!-- NAVBAR -->
@@ -877,11 +211,7 @@ footer {
       <i class="fas fa-seedling"></i>
       Togas Edible Oil NG Ltd
     </a>
-    
-    <button class="menu-toggle" id="menuToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-    
+    <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
     <nav class="nav-links" id="navLinks">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -892,15 +222,16 @@ footer {
   </div>
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="products-hero">
   <h1>Premium Edible Oils</h1>
   <p>Discover our range of high-quality edible oils designed for Nigerian homes and businesses. Each product is crafted with care to deliver exceptional taste and nutrition.</p>
 </section>
 
-<!-- PRODUCTS GRID -->
+<!-- EXISTING PRODUCT CARDS -->
 <section class="container">
   <div class="products-grid">
+
     <!-- TOGAS PREMIUM OIL -->
     <div class="product-card">
       <div class="product-image">
@@ -909,7 +240,6 @@ footer {
       <div class="product-details">
         <h2>Togas Premium Soybean Oil</h2>
         <p>Our flagship refined soybean oil delivers superior performance for all your cooking needs. Its light texture and neutral flavour make it the perfect choice for frying, baking, and salad dressings.</p>
-        
         <ul class="features-list">
           <li><i class="fas fa-check"></i> Available sizes: 25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</li>
           <li><i class="fas fa-check"></i> 100% pure refined soybean oil</li>
@@ -918,12 +248,11 @@ footer {
           <li><i class="fas fa-check"></i> Neutral taste – never overpowers your dish</li>
           <li><i class="fas fa-check"></i> Preservative-free with extended shelf life</li>
         </ul>
-        
         <a href="distributor.html" class="cta-btn">Become a Distributor</a>
       </div>
     </div>
 
-    <!-- AFRIRICH OIL PRODUCT -->
+    <!-- AFRIRICH OIL -->
     <div class="product-card">
       <div class="product-image">
         <img src="images/image2.jpeg" alt="AfriRich Cooking Oil">
@@ -931,7 +260,6 @@ footer {
       <div class="product-details">
         <h2>AfriRich Vegetable Oil</h2>
         <p>Economical yet nutritious, AfriRich Vegetable Oil is blended for everyday Nigerian meals. It provides essential fatty acids for healthy living while keeping your family budget in check.</p>
-        
         <ul class="features-list">
           <li><i class="fas fa-check"></i> Available sizes: 25L, 10L</li>
           <li><i class="fas fa-check"></i> Value packs – great for regular use</li>
@@ -940,38 +268,23 @@ footer {
           <li><i class="fas fa-check"></i> Light texture, easily digestible</li>
           <li><i class="fas fa-check"></i> No artificial colours or preservatives</li>
         </ul>
-        
         <a href="distributor.html" class="cta-btn">Become a Distributor</a>
       </div>
     </div>
-    
-    <!-- TOGAS PALM OIL PRODUCT -->
+
+    <!-- TOGAS PALM OIL -->
     <div class="product-card">
       <div class="product-image">
-        <!-- Image Carousel for Palm Oil -->
         <div class="palm-oil-carousel" id="palmOilCarousel">
-          <!-- Slide 1 -->
-          <div class="carousel-slide active">
-            <img src="images/redoil.jpeg" alt="Togas Palm Oil Bottle">
-          </div>
-          <!-- Slide 2 -->
-          <div class="carousel-slide">
-            <img src="images/redoil.jpeg" alt="Togas Palm Oil Cooking">
-          </div>
-          <!-- Slide 3 -->
-          <div class="carousel-slide">
-            <img src="images/redoil.jpeg" alt="Togas Palm Oil Natural">
-          </div>
-          <!-- Slide 4 -->
-          <div class="carousel-slide">
-            <img src="images/redoil.jpeg" alt="Togas Palm Oil Packaging">
-          </div>
+          <div class="carousel-slide active"><img src="images/redoil.jpeg" alt="Togas Palm Oil Bottle"></div>
+          <div class="carousel-slide"><img src="images/redoil.jpeg" alt="Togas Palm Oil Cooking"></div>
+          <div class="carousel-slide"><img src="images/redoil.jpeg" alt="Togas Palm Oil Natural"></div>
+          <div class="carousel-slide"><img src="images/redoil.jpeg" alt="Togas Palm Oil Packaging"></div>
         </div>
       </div>
       <div class="product-details">
         <h2 class="palm-oil-title">Togas Natural Palm Oil</h2>
         <p>Unrefined, antioxidant-rich palm oil that brings authentic flavour to traditional Nigerian dishes. Its deep reddish-orange colour and natural aroma enhance soups, stews and fried delicacies.</p>
-        
         <ul class="features-list palm-oil-features">
           <li><i class="fas fa-check"></i> Available sizes: 5L, 3L</li>
           <li><i class="fas fa-check"></i> 100% natural, unrefined – no bleaching</li>
@@ -981,181 +294,125 @@ footer {
           <li><i class="fas fa-check"></i> Free from chemicals & preservatives</li>
           <li><i class="fas fa-check"></i> Cold-pressed to retain natural nutrients</li>
         </ul>
-        
         <a href="distributor.html" class="cta-btn palm-oil-btn">Become a Distributor</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SOYBEAN OIL SIZE SPOTLIGHT WITH FULL IMAGES -->
+<section class="size-section soybean-section">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+    <div class="size-section-header">
+      <div class="brand-icon green"><i class="fas fa-seedling"></i></div>
+      <div class="size-section-header-text">
+        <h2>Togas Premium Soybean Oil — Everyday Sizes</h2>
+        <p>The same 100% refined soybean oil you trust, now available in home-friendly bottle sizes so every kitchen can enjoy it — from studio apartments to bustling family homes.</p>
+      </div>
+    </div>
+    <div class="size-cards-row">
+      <!-- 1L SOYBEAN - FULL IMAGE -->
+      <div class="size-card">
+        <div class="size-card-topbar green"><div class="size-label">1L</div><div class="size-brand">Togas Premium<br>Soybean Oil</div></div>
+        <div class="size-card-image"><img src="images/togas1L.jpeg" alt="Togas Soybean Oil 1L" onerror="this.src='https://placehold.co/600x500/eef4ef/5f7f63?text=1L+Soybean+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot"><img src="images/togas1L.jpeg" alt="Front view" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot"><img src="images/togas1L.jpeg" alt="Label detail" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot"><img src="images/togas1L.jpeg" alt="Pouring" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="green">Light, Fresh & Effortless</h3><p>Perfect for singles & couples, stores easily in any kitchen cupboard.</p><ul class="size-perks"><li><i class="fas fa-check-circle green"></i> Perfect for singles & couples</li><li><i class="fas fa-check-circle green"></i> Secure, drip-free resealable cap</li></ul><a href="distributor.html" class="size-cta green">Become a Distributor</a></div>
+      </div>
+      <!-- 2L SOYBEAN - FULL IMAGE -->
+      <div class="size-card">
+        <div class="size-card-topbar green"><div class="size-label">2L</div><div class="size-brand">Togas Premium<br>Soybean Oil</div></div>
+        <div class="size-card-image"><img src="images/togas2L.jpeg" alt="Togas Soybean Oil 2L" onerror="this.src='https://placehold.co/600x500/eef4ef/5f7f63?text=2L+Soybean+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot"><img src="images/togas2L.jpeg" alt="Handle view" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot"><img src="images/togas2L.jpeg" alt="Label" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="green">The Mid-Week Kitchen Companion</h3><p>Two litres means enough oil to carry you comfortably through a full week of family meals.</p><ul class="size-perks"><li><i class="fas fa-check-circle green"></i> Suits small families of 2–4</li><li><i class="fas fa-check-circle green"></i> High smoke point — ideal for all frying</li></ul><a href="distributor.html" class="size-cta green">Become a Distributor</a></div>
+      </div>
+      <!-- 3L SOYBEAN - FULL IMAGE -->
+      <div class="size-card">
+        <div class="size-card-topbar green"><div class="size-label">3L</div><div class="size-brand">Togas Premium<br>Soybean Oil</div></div>
+        <div class="size-card-image"><img src="images/togas3L.jpeg" alt="Togas Soybean Oil 3L" onerror="this.src='https://placehold.co/600x500/eef4ef/5f7f63?text=3L+Soybean+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot"><img src="images/togas3L.jpeg" alt="Stable base" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot"><img src="images/togas3L.jpeg" alt="Family size" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="green">Built for the Busy Household</h3><p>Three litres of premium soybean oil means fewer top-ups and more cooking freedom.</p><ul class="size-perks"><li><i class="fas fa-check-circle green"></i> Great for households of 3–5 people</li><li><i class="fas fa-check-circle green"></i> Cholesterol-free — heart-healthy</li></ul><a href="distributor.html" class="size-cta green">Become a Distributor</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON SECTION - IMPROVED FOR MOBILE WITH UPDATED SIZES (cL) -->
+<!-- PALM OIL SIZE SPOTLIGHT WITH FULL IMAGES -->
+<section class="size-section palm-section">
+  <div style="max-width:1200px;margin:0 auto;padding:0 20px">
+    <div class="size-section-header">
+      <div class="brand-icon gold"><i class="fas fa-leaf"></i></div>
+      <div class="size-section-header-text">
+        <h2>Togas Natural Palm Oil — Everyday Sizes</h2>
+        <p>All the rich colour, deep aroma and authentic taste of our unrefined palm oil — now bottled in sizes that suit any household.</p>
+      </div>
+    </div>
+    <div class="size-cards-row">
+      <!-- 1L PALM OIL - FULL IMAGE -->
+      <div class="size-card">
+        <div class="size-card-topbar gold"><div class="size-label">5L</div><div class="size-brand">Togas Natural<br>Palm Oil</div></div>
+        <div class="size-card-image palm-bg"><img src="images/palmoil-1L.jpeg" alt="Togas Palm Oil 1L" onerror="this.src='https://placehold.co/600x500/f8f0d5/d4a017?text=1L+Palm+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot palm"><img src="images/palmoil-1L-bottle.jpeg" alt="Bottle view" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot palm"><img src="images/palmoil-1L.jpeg" alt="Rich color" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="gold">A Taste of Tradition, Anytime</h3><p>One litre of pure, cold-pressed palm oil keeps the flavours of home alive.</p><ul class="size-perks"><li><i class="fas fa-check-circle gold"></i> Ideal for singles & small households</li><li><i class="fas fa-check-circle gold"></i> Deep colour preserved — no additives</li></ul><a href="distributor.html" class="size-cta gold">Become a Distributor</a></div>
+      </div>
+      <!-- 3L PALM OIL - FULL IMAGE -->
+      <div class="size-card">
+        <div class="size-card-topbar gold"><div class="size-label">3L</div><div class="size-brand">Togas Natural<br>Palm Oil</div></div>
+        <div class="size-card-image palm-bg"><img src="images/redoil.jpeg" alt="Togas Palm Oil 2L" onerror="this.src='https://placehold.co/600x500/f8f0d5/d4a017?text=2L+Palm+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot palm"><img src="images/oil2L.jpeg" alt="Handle view" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot palm"><img src="images/oil2L.jpeg" alt="Pouring" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="gold">Enough for the Whole Week's Soups</h3><p>Two litres of naturally rich palm oil keeps your traditional dishes tasting authentic.</p><ul class="size-perks"><li><i class="fas fa-check-circle gold"></i> Enough for a week of daily cooking</li><li><i class="fas fa-check-circle gold"></i> High in Vitamin A & natural antioxidants</li></ul><a href="distributor.html" class="size-cta gold">Become a Distributor</a></div>
+      </div>
+      <!-- 2L PALM OIL - FULL IMAGE -->
+      <!-- <div class="size-card">
+        <div class="size-card-topbar gold"><div class="size-label">3L</div><div class="size-brand">Togas Natural<br>Palm Oil</div></div>
+        <div class="size-card-image palm-bg"><img src="images/palmoil-3L.jpeg" alt="Togas Palm Oil 3L" onerror="this.src='https://placehold.co/600x500/f8f0d5/d4a017?text=3L+Palm+Oil'"></div>
+        <div class="extra-slots"><div class="extra-slot palm"><img src="images/palmoil-3L.jpeg" alt="Family pack" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div><div class="extra-slot palm"><img src="images/palmoil-3L.jpeg" alt="Kitchen ready" onerror="this.parentElement.innerHTML='<i class=\'fas fa-plus slot-plus\'></i>'"></div></div>
+        <div class="size-card-body"><h3 class="gold">The Family Kitchen's Best Friend</h3><p>Three litres means your kitchen never loses its soul.</p><ul class="size-perks"><li><i class="fas fa-check-circle gold"></i> Suits busy families of 4–6 people</li><li><i class="fas fa-check-circle gold"></i> 100% unrefined — authentic flavour</li></ul><a href="distributor.html" class="size-cta gold">Become a Distributor</a></div>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT GALLERY - PICTURE ONLY WITH ADDED IMAGES -->
+<section class="product-gallery-section">
+  <div class="gallery-header">
+    <h2>Product Gallery</h2>
+    <p>Browse our complete collection of premium edible oils - just pictures, no distractions.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-img-item"><img src="images/ground1.jpeg" alt="Groundnut Oil" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Groundnut+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground2.jpeg" alt="Sunflower Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Sunflower+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground3.jpeg" alt="Olive Oil" onerror="this.src='https://placehold.co/400x300/eef4ef/8b7355?text=Olive+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground4.jpeg" alt="Coconut Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Coconut+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground5.jpeg" alt="Sesame Oil" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Sesame+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground6.jpeg" alt="Canola Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Canola+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/ground7.jpeg" alt="Palm Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Palm+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/togas1L.jpeg" alt="Soybean Oil 1L" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Soybean+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/togas2L.jpeg" alt="Soybean Oil 2L" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Soybean+Oil+2L'"></div>
+    <div class="gallery-img-item"><img src="images/togas3L.jpeg" alt="Soybean Oil 3L" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Soybean+Oil+3L'"></div>
+    <div class="gallery-img-item"><img src="images/ground6.jpeg" alt="Palm Oil 1L" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Palm+Oil+1L'"></div>
+    <div class="gallery-img-item"><img src="images/oil2L.jpeg" alt="Palm Oil 2L" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Palm+Oil+2L'"></div>
+    <div class="gallery-img-item"><img src="images/ground4.jpeg" alt="Palm Oil 3L" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Palm+Oil+3L'"></div>
+    <div class="gallery-img-item"><img src="images/image1.jpeg" alt="Premium Soybean" onerror="this.src='https://placehold.co/400x300/eef4ef/5f7f63?text=Premium+Soybean'"></div>
+    <div class="gallery-img-item"><img src="images/image2.jpeg" alt="AfriRich Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=AfriRich+Oil'"></div>
+    <div class="gallery-img-item"><img src="images/redoil.jpeg" alt="Red Palm Oil" onerror="this.src='https://placehold.co/400x300/f8f0d5/d4a017?text=Red+Palm+Oil'"></div>
+  </div>
+</section>
+
+<!-- COMPARISON -->
 <section class="comparison">
   <div class="container">
     <h2>Product Comparison</h2>
-    
-    <!-- Desktop Table View (updated sizes with cL) -->
     <div class="comparison-table">
       <table class="desktop-table">
-        <thead>
-          <tr>
-            <th>Features</th>
-            <th>Togas Premium Soybean</th>
-            <th>AfriRich Veg. Oil</th>
-            <th>Togas Natural Palm</th>
-          </tr>
-        </thead>
+        <thead><tr><th>Features</th><th>Togas Premium Soybean</th><th>AfriRich Veg. Oil</th><th>Togas Natural Palm</th></tr></thead>
         <tbody>
-          <tr>
-            <td><strong>Packaging Sizes</strong></td>
-            <td class="togas-value">25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</td>
-            <td class="afririch-value">25L, 10L</td>
-            <td class="palm-oil-value">5L, 3L</td>
-          </tr>
-          <tr>
-            <td><strong>Best For</strong></td>
-            <td class="togas-value">Deep frying, baking, dressings</td>
-            <td class="afririch-value">Daily family meals</td>
-            <td class="palm-oil-value">Traditional soups, stews, frying</td>
-          </tr>
-          <tr>
-            <td><strong>Smoke Point</strong></td>
-            <td class="togas-value">Very High (230°C)</td>
-            <td class="afririch-value">High (210°C)</td>
-            <td class="palm-oil-value">Medium-High (220°C)</td>
-          </tr>
-          <tr>
-            <td><strong>Nutritional Value</strong></td>
-            <td class="togas-value">Rich in Vitamin E & Omega-6</td>
-            <td class="afririch-value">Balanced essential fatty acids</td>
-            <td class="palm-oil-value">High in Vitamin A & antioxidants</td>
-          </tr>
-          <tr>
-            <td><strong>Color & Texture</strong></td>
-            <td class="togas-value">Clear, light & neutral</td>
-            <td class="afririch-value">Pale yellow, neutral</td>
-            <td class="palm-oil-value">Reddish-orange, thick & aromatic</td>
-          </tr>
-          <tr>
-            <td><strong>Price Category</strong></td>
-            <td class="togas-value">Premium</td>
-            <td class="afririch-value">Economical</td>
-            <td class="palm-oil-value">Mid to Premium</td>
-          </tr>
+          <tr><td><strong>Packaging Sizes</strong></td><td class="togas-value">25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</td><td class="afririch-value">25L, 10L</td><td class="palm-oil-value">5L, 3L, 2L, 1L</td></tr>
+          <tr><td><strong>Best For</strong></td><td class="togas-value">Deep frying, baking, dressings</td><td class="afririch-value">Daily family meals</td><td class="palm-oil-value">Traditional soups, stews, frying</td></tr>
+          <tr><td><strong>Smoke Point</strong></td><td class="togas-value">Very High (230°C)</td><td class="afririch-value">High (210°C)</td><td class="palm-oil-value">Medium-High (220°C)</td></tr>
+          <tr><td><strong>Nutritional Value</strong></td><td class="togas-value">Rich in Vitamin E & Omega-6</td><td class="afririch-value">Balanced essential fatty acids</td><td class="palm-oil-value">High in Vitamin A & antioxidants</td></tr>
         </tbody>
       </table>
-      
-      <!-- Mobile Comparison Cards (updated sizes with cL) -->
-      <div class="comparison-cards">
-        <!-- Card 1: Packaging -->
-        <div class="comparison-card">
-          <div class="feature-title">Packaging Sizes</div>
-          <div class="feature-row">
-            <div class="feature-label">Available Sizes</div>
-            <div class="feature-values">
-              <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">25L, 10L, 5L, 3L, 2L, 1L, 75cL, 25cL</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">25L, 10L</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">Palm Oil:</span>
-                <span class="product-text palm-oil-value">5L, 3L</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 2: Best For -->
-        <div class="comparison-card">
-          <div class="feature-title">Best For</div>
-          <div class="feature-row">
-            <div class="feature-label">Ideal Use</div>
-            <div class="feature-values">
-              <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">Commercial kitchens, large families</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">Everyday family cooking</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">Palm Oil:</span>
-                <span class="product-text palm-oil-value">Traditional dishes, soups, stews</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 3: Smoke Point -->
-        <div class="comparison-card">
-          <div class="feature-title">Smoke Point</div>
-          <div class="feature-row">
-            <div class="feature-label">Cooking Temperature</div>
-            <div class="feature-values">
-              <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">Very High (230°C)</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">High (210°C)</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">Palm Oil:</span>
-                <span class="product-text palm-oil-value">Medium-High (220°C)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 4: Nutritional Value -->
-        <div class="comparison-card">
-          <div class="feature-title">Nutritional Value</div>
-          <div class="feature-row">
-            <div class="feature-label">Health Benefits</div>
-            <div class="feature-values">
-              <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">Rich in Vitamin E & Omega-6</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">Balanced essential fatty acids</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">Palm Oil:</span>
-                <span class="product-text palm-oil-value">High in Vitamin A & E antioxidants</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Card 5: Price Range -->
-        <div class="comparison-card">
-          <div class="feature-title">Price Range</div>
-          <div class="feature-row">
-            <div class="feature-label">Affordability</div>
-            <div class="feature-values">
-              <div class="feature-value">
-                <span class="product-label">Togas:</span>
-                <span class="product-text togas-value">Premium</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">AfriRich:</span>
-                <span class="product-text afririch-value">Economical</span>
-              </div>
-              <div class="feature-value">
-                <span class="product-label">Palm Oil:</span>
-                <span class="product-text palm-oil-value">Mid-range to Premium</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
@@ -1165,50 +422,9 @@ footer {
   <div class="container">
     <h2>What Our Customers Say</h2>
     <div class="testimonial-grid">
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          "Togas Premium Soybean Oil has transformed our restaurant's cooking quality. The consistent performance and neutral flavor make it perfect for all our dishes."
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="author-info">
-            <h4>Chef Adebayo</h4>
-            <p>Restaurant Owner, Lagos</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          "AfriRich Cooking Oil provides excellent value for money. My family loves the taste, and it's gentle on our budget without compromising quality."
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="author-info">
-            <h4>Mrs. Chika</h4>
-            <p>Home Cook, Abuja</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-card">
-        <div class="testimonial-text">
-          "Togas Natural Palm Oil brings authentic taste to my traditional recipes. The natural color and flavor make my soups and stews come alive!"
-        </div>
-        <div class="testimonial-author">
-          <div class="author-avatar">
-            <i class="fas fa-user"></i>
-          </div>
-          <div class="author-info">
-            <h4>Mama Ngozi</h4>
-            <p>Caterer, Port Harcourt</p>
-          </div>
-        </div>
-      </div>
+      <div class="testimonial-card"><div class="testimonial-text">"Togas Premium Soybean Oil has transformed our restaurant's cooking quality. The consistent performance and neutral flavor make it perfect for all our dishes."</div><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div class="author-info"><h4>Chef Adebayo</h4><p>Restaurant Owner, Lagos</p></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"AfriRich Cooking Oil provides excellent value for money. My family loves the taste, and it's gentle on our budget without compromising quality."</div><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div class="author-info"><h4>Mrs. Chika</h4><p>Home Cook, Abuja</p></div></div></div>
+      <div class="testimonial-card"><div class="testimonial-text">"Togas Natural Palm Oil brings authentic taste to my traditional recipes. The natural color and flavor make my soups and stews come alive!"</div><div class="testimonial-author"><div class="author-avatar"><i class="fas fa-user"></i></div><div class="author-info"><h4>Mama Ngozi</h4><p>Caterer, Port Harcourt</p></div></div></div>
     </div>
   </div>
 </section>
@@ -1223,99 +439,38 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-content">
-    <div class="footer-about">
-      <div class="footer-logo">Togas Edible Oil NG Ltd</div>
-      <p>Producing premium quality edible oils for Nigerian homes and businesses since 2010.</p>
-    </div>
-    
-    <div class="footer-links">
-      <h4>Quick Links</h4>
-      <a href="index.html"><i class="fas fa-home"></i> Home</a>
-      <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
-      <a href="products.html"><i class="fas fa-box"></i> Our Products</a>
-      <a href="distributor.html"><i class="fas fa-handshake"></i> Become a Distributor</a>
-    </div>
-    
-    <div class="footer-links">
-      <h4>Contact Info</h4>
-      <a href="#"><i class="fas fa-map-marker-alt"></i>71 Iju Road, Agege, Lagos, Nigeria</a>
-      <a href="tel:+2347065533880"><i class="fas fa-phone"></i> +234 7065533880</a>
-      <a href="mailto:Togasventures@gmail.com"><i class="fas fa-envelope"></i> Togasventures@gmail.com</a>
-    </div>
+    <div class="footer-about"><div class="footer-logo">Togas Edible Oil NG Ltd</div><p>Producing premium quality edible oils for Nigerian homes and businesses since 2010.</p></div>
+    <div class="footer-links"><h4>Quick Links</h4><a href="index.html"><i class="fas fa-home"></i> Home</a><a href="about.html"><i class="fas fa-info-circle"></i> About Us</a><a href="products.html"><i class="fas fa-box"></i> Our Products</a><a href="distributor.html"><i class="fas fa-handshake"></i> Become a Distributor</a></div>
+    <div class="footer-links"><h4>Contact Info</h4><a href="#"><i class="fas fa-map-marker-alt"></i> 71 Iju Road, Agege, Lagos, Nigeria</a><a href="tel:+2347065533880"><i class="fas fa-phone"></i> +234 7065533880</a><a href="mailto:Togasventures@gmail.com"><i class="fas fa-envelope"></i> Togasventures@gmail.com</a></div>
   </div>
-  
-  <div class="copyright">
-    &copy; 2023 Togas Edible Oil NG Ltd. All rights reserved.
-  </div>
+  <div class="copyright">&copy; 2023 Togas Edible Oil NG Ltd. All rights reserved.</div>
 </footer>
 
 <script>
-  // Mobile menu toggle - FIXED VERSION
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
-    // Check if elements exist
-    if (menuToggle && navLinks) {
-      // Toggle mobile menu
-      menuToggle.addEventListener('click', function(e) {
-        e.stopPropagation(); // Prevent event bubbling
-        navLinks.classList.toggle('active');
-        // Change icon based on menu state
-        if (navLinks.classList.contains('active')) {
-          menuToggle.innerHTML = '<i class="fas fa-times"></i>';
-          menuToggle.setAttribute('aria-expanded', 'true');
-        } else {
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-      
-      // Close mobile menu when clicking on a link
-      document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
-          if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            menuToggle.setAttribute('aria-expanded', 'false');
-          }
-        }
-      });
-      
-      // Close menu on escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
-      });
-    } else {
-      console.error('Menu elements not found. Check your HTML IDs.');
-    }
-    
-    // Optional: Close menu on window resize (if resizing to desktop)
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks   = document.getElementById('navLinks');
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      menuToggle.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
         navLinks.classList.remove('active');
-        if (menuToggle) {
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-          menuToggle.setAttribute('aria-expanded', 'false');
-        }
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      });
+    });
+    document.addEventListener('click', function(e) {
+      if (!navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
       }
     });
-  });
+  }
+});
 </script>
-
 </body>
 </html>
 ```
